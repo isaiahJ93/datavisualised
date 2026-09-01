@@ -1,0 +1,800 @@
+<title>Vaultry Market Assessment</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<style>
+  :root {
+    color-scheme: light;
+    --plane:      #EDEFEE;
+    --surface:    #FBFCFB;
+    --surface-2:  #F4F6F5;
+    --ink:        #111A18;
+    --ink-2:      #4C5854;
+    --muted:      #6F7D79;
+    --rule:       #D5DBD8;
+    --rule-soft:  #E4E8E6;
+    --accent:     #007C62;
+    --accent-ink: #005C48;
+    --accent-wash:#E3EFEB;
+    --rust:       #A4552B;
+    --rust-wash:  #F5E9E1;
+    --critical:   #D03B3B;
+    --bar-neutral:#7C8A86;
+    --shadow:     0 1px 2px rgba(17,26,24,.05), 0 8px 24px -16px rgba(17,26,24,.22);
+
+    --f-display: "IBM Plex Sans Condensed", "Helvetica Neue", Arial, sans-serif;
+    --f-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+    --f-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --plane:      #0B0F0E;
+      --surface:    #141917;
+      --surface-2:  #1B211F;
+      --ink:        #EDF2F0;
+      --ink-2:      #A4B1AD;
+      --muted:      #7E8E89;
+      --rule:       #262E2C;
+      --rule-soft:  #1E2523;
+      --accent:     #38A891;
+      --accent-ink: #5BC0AA;
+      --accent-wash:#142A26;
+      --rust:       #D2793F;
+      --rust-wash:  #2A1D14;
+      --critical:   #E05555;
+      --bar-neutral:#7E8E89;
+      --shadow:     0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.7);
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --plane:      #0B0F0E;
+    --surface:    #141917;
+    --surface-2:  #1B211F;
+    --ink:        #EDF2F0;
+    --ink-2:      #A4B1AD;
+    --muted:      #7E8E89;
+    --rule:       #262E2C;
+    --rule-soft:  #1E2523;
+    --accent:     #38A891;
+    --accent-ink: #5BC0AA;
+    --accent-wash:#142A26;
+    --rust:       #D2793F;
+    --rust-wash:  #2A1D14;
+    --critical:   #E05555;
+    --bar-neutral:#7E8E89;
+    --shadow:     0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.7);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--plane);
+    color: var(--ink);
+    font-family: var(--f-body);
+    font-size: 17px;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .sheet {
+    max-width: 812px;
+    margin: 0 auto;
+    padding: 0 24px 96px;
+  }
+
+  /* ---------- masthead ---------- */
+  .masthead {
+    padding: 72px 0 32px;
+    border-bottom: 2px solid var(--ink);
+  }
+  .eyebrow {
+    font-family: var(--f-display);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    margin: 0 0 20px;
+  }
+  h1 {
+    font-family: var(--f-display);
+    font-size: clamp(40px, 7vw, 64px);
+    font-weight: 700;
+    line-height: 1.02;
+    letter-spacing: -.015em;
+    margin: 0 0 18px;
+    text-wrap: balance;
+  }
+  .standfirst {
+    font-size: 20px;
+    line-height: 1.5;
+    color: var(--ink-2);
+    margin: 0 0 28px;
+    max-width: 60ch;
+    text-wrap: pretty;
+  }
+  .scope {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .scope li {
+    font-family: var(--f-display);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 5px 10px;
+  }
+
+  /* ---------- verdict ---------- */
+  .verdict {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--accent);
+    border-radius: 2px;
+    padding: 32px;
+    margin: 36px 0 0;
+    box-shadow: var(--shadow);
+  }
+  .verdict h2 {
+    font-family: var(--f-display);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 14px;
+  }
+  .verdict p {
+    margin: 0 0 14px;
+    font-size: 19px;
+    line-height: 1.55;
+  }
+  .verdict p:last-child { margin-bottom: 0; }
+  .verdict strong { font-weight: 600; }
+
+  .pull {
+    font-family: var(--f-display);
+    font-size: clamp(21px, 3.4vw, 29px);
+    font-weight: 600;
+    line-height: 1.24;
+    letter-spacing: -.01em;
+    color: var(--ink);
+    margin: 44px 0;
+    padding: 0 0 0 22px;
+    border-left: 3px solid var(--accent);
+    text-wrap: balance;
+  }
+  .pull .src {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: .02em;
+    color: var(--muted);
+    margin-top: 14px;
+    line-height: 1.5;
+  }
+
+  /* ---------- sections ---------- */
+  section { padding-top: 56px; }
+  .sec-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 10px;
+    margin-bottom: 26px;
+  }
+  .sec-num {
+    font-family: var(--f-mono);
+    font-size: 13px;
+    color: var(--accent-ink);
+    letter-spacing: .02em;
+    flex: none;
+  }
+  h2.sec-title {
+    font-family: var(--f-display);
+    font-size: 27px;
+    font-weight: 700;
+    letter-spacing: -.01em;
+    margin: 0;
+    line-height: 1.2;
+  }
+  h3 {
+    font-family: var(--f-display);
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -.005em;
+    margin: 38px 0 10px;
+    line-height: 1.28;
+  }
+  h3 .tag {
+    font-family: var(--f-display);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    vertical-align: 2px;
+    margin-left: 8px;
+    padding: 3px 7px;
+    border-radius: 2px;
+  }
+  .tag.no { color: var(--critical); background: var(--rust-wash); }
+  .tag.maybe { color: var(--accent-ink); background: var(--accent-wash); }
+
+  p { margin: 0 0 16px; max-width: 68ch; text-wrap: pretty; }
+  a { color: var(--accent-ink); }
+  ul.body-list { margin: 0 0 16px; padding-left: 20px; max-width: 68ch; }
+  ul.body-list li { margin-bottom: 8px; }
+
+  /* ---------- data figures ---------- */
+  figure {
+    margin: 30px 0;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 24px;
+  }
+  figcaption {
+    font-family: var(--f-display);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .01em;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .fig-sub {
+    font-family: var(--f-display);
+    font-size: 12.5px;
+    font-weight: 400;
+    color: var(--muted);
+    margin-bottom: 20px;
+    line-height: 1.45;
+  }
+  .fig-note {
+    font-family: var(--f-display);
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.5;
+    margin: 18px 0 0;
+    padding-top: 14px;
+    border-top: 1px solid var(--rule-soft);
+  }
+
+  /* stat pair */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 2px;
+    background: var(--rule-soft);
+    border: 1px solid var(--rule-soft);
+  }
+  .stat { background: var(--surface); padding: 20px; }
+  .stat .lab {
+    font-family: var(--f-display);
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .stat .num {
+    font-family: var(--f-display);
+    font-size: 38px;
+    font-weight: 700;
+    letter-spacing: -.02em;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink);
+  }
+  .stat .unit {
+    font-family: var(--f-display);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink-2);
+    margin-top: 8px;
+    line-height: 1.4;
+  }
+  .stat .trend {
+    font-family: var(--f-display);
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    margin-top: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .trend.flat { color: var(--critical); }
+  .trend.up { color: var(--accent-ink); }
+
+  /* bar rows */
+  .bars { display: flex; flex-direction: column; gap: 2px; }
+  .row {
+    display: grid;
+    grid-template-columns: minmax(0, 34%) 1fr auto;
+    gap: 16px;
+    align-items: center;
+    padding: 7px 0;
+  }
+  .row .rlab {
+    font-family: var(--f-display);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink-2);
+    line-height: 1.3;
+    font-variant-numeric: tabular-nums;
+  }
+  .row .rlab .qual {
+    display: block;
+    font-size: 11.5px;
+    font-weight: 500;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 3px;
+  }
+  .row .rlab .qual.bad { color: var(--critical); }
+  .track {
+    position: relative;
+    height: 26px;
+    display: flex;
+    align-items: center;
+  }
+  .bar {
+    height: 22px;
+    border-radius: 0 4px 4px 0;
+    transition: filter .15s ease;
+  }
+  .row:hover .bar { filter: brightness(1.08) saturate(1.06); }
+  .bar.teal { background: var(--accent); }
+  .bar.neutral { background: var(--bar-neutral); }
+  .bar.crit { background: var(--critical); }
+  .val {
+    font-family: var(--f-display);
+    font-size: 14px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink);
+    white-space: nowrap;
+    text-align: right;
+    width: 56px;
+  }
+  .threshold {
+    position: absolute;
+    left: 55.6%;
+    top: -5px;
+    bottom: -5px;
+    width: 0;
+    border-left: 1px dashed var(--ink-2);
+    opacity: .5;
+    pointer-events: none;
+  }
+  .thresh-key {
+    display: grid;
+    grid-template-columns: minmax(0, 34%) 1fr auto;
+    gap: 16px;
+    margin-top: 6px;
+  }
+  .thresh-key .mark {
+    position: relative;
+    height: 14px;
+  }
+  .thresh-key .mark span {
+    position: absolute;
+    left: 55.6%;
+    transform: translateX(-50%);
+    font-family: var(--f-display);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    white-space: nowrap;
+  }
+  .thresh-key .spacer { width: 56px; }
+
+  /* ---------- tables ---------- */
+  .twrap { overflow-x: auto; margin: 26px 0; border: 1px solid var(--rule); border-radius: 2px; }
+  table { border-collapse: collapse; width: 100%; background: var(--surface); font-size: 14.5px; }
+  th, td {
+    text-align: left;
+    padding: 11px 14px;
+    border-bottom: 1px solid var(--rule-soft);
+    vertical-align: top;
+  }
+  th {
+    font-family: var(--f-display);
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    background: var(--surface-2);
+    white-space: nowrap;
+  }
+  td { font-family: var(--f-display); font-size: 14px; color: var(--ink-2); line-height: 1.45; }
+  td:first-child { color: var(--ink); font-weight: 500; }
+  td.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+  tr:last-child td { border-bottom: 0; }
+  .v-no { color: var(--critical); font-weight: 600; }
+  .v-ok { color: var(--accent-ink); font-weight: 600; }
+
+  /* ---------- code / arithmetic ---------- */
+  pre {
+    font-family: var(--f-mono);
+    font-size: 13px;
+    line-height: 1.7;
+    background: var(--surface-2);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 18px;
+    overflow-x: auto;
+    margin: 24px 0;
+    color: var(--ink);
+  }
+
+  /* ---------- callouts ---------- */
+  .callout {
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--rust);
+    background: var(--surface);
+    border-radius: 2px;
+    padding: 20px 22px;
+    margin: 28px 0;
+  }
+  .callout .ctitle {
+    font-family: var(--f-display);
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 10px;
+  }
+  .callout p { margin-bottom: 10px; font-size: 16px; }
+  .callout p:last-child { margin-bottom: 0; }
+
+  /* ---------- test steps ---------- */
+  .steps { list-style: none; margin: 26px 0 0; padding: 0; counter-reset: s; }
+  .steps > li {
+    counter-increment: s;
+    display: grid;
+    grid-template-columns: 34px 1fr;
+    gap: 16px;
+    padding: 18px 0;
+    border-top: 1px solid var(--rule-soft);
+  }
+  .steps > li::before {
+    content: counter(s);
+    font-family: var(--f-mono);
+    font-size: 13px;
+    color: var(--accent-ink);
+    padding-top: 3px;
+  }
+  .steps h4 {
+    font-family: var(--f-display);
+    font-size: 16.5px;
+    font-weight: 600;
+    margin: 0 0 6px;
+    line-height: 1.3;
+  }
+  .steps p { margin: 0 0 8px; font-size: 15.5px; }
+  .steps p:last-child { margin-bottom: 0; }
+  .stop {
+    font-family: var(--f-display);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--critical);
+    display: block;
+  }
+  .go {
+    font-family: var(--f-display);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--accent-ink);
+    display: block;
+  }
+
+  /* ---------- footer ---------- */
+  footer {
+    margin-top: 64px;
+    padding-top: 22px;
+    border-top: 2px solid var(--ink);
+    font-family: var(--f-display);
+    font-size: 12.5px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 620px) {
+    body { font-size: 16px; }
+    .sheet { padding: 0 18px 72px; }
+    .row { grid-template-columns: 1fr auto; gap: 6px 12px; }
+    .row .rlab { grid-column: 1 / -1; }
+    .thresh-key { grid-template-columns: 1fr auto; }
+    .thresh-key > :first-child { display: none; }
+    .verdict { padding: 24px; }
+    figure { padding: 18px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+</style>
+
+<div class="sheet">
+
+  <header class="masthead">
+    <p class="eyebrow">Hermes research · five independent fronts</p>
+    <h1>Vaultry Market Assessment</h1>
+    <p class="standfirst">Is there a legitimate gap in helping civil-construction subcontractors win work and manage their documents and compliance — and can it produce a large outcome?</p>
+    <ul class="scope">
+      <li>Australia &amp; New Zealand</li>
+      <li>Civil, not residential</li>
+      <li>Prototype stage</li>
+      <li>September 2026</li>
+    </ul>
+  </header>
+
+  <div class="verdict">
+    <h2>Verdict</h2>
+    <p><strong>No to the venture as framed. Yes to a smaller, real business</strong> — and there is one genuinely interesting adjacent opportunity the research surfaced by accident.</p>
+    <p>Five agents worked separate fronts — incumbents, demand channels, market size, business model, regulation — without seeing each other's work. All five reached the same structural conclusion independently.</p>
+  </div>
+
+  <p class="pull">The party with the pain has no budget. The party with the budget wants the pain to continue.
+    <span class="src">This is not a gap waiting to be filled. It is an equilibrium, and it is load-bearing for the incumbents.</span>
+  </p>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">§1</span><h2 class="sec-title">The two halves, judged separately</h2></div>
+
+    <h3>Help subcontractors get work <span class="tag no">No-go</span></h3>
+    <p>This is measured, not argued. Felix (ASX:FLX) ran the experiment for 14 years with distribution no startup can buy: CPB Contractors and Downer <em>mandate</em> that new subcontractors register through it.</p>
+
+    <figure>
+      <figcaption>Felix revenue by side of market, 30 June 2026</figcaption>
+      <p class="fig-sub">The same company, the same platform, both sides monetised. Only one side pays.</p>
+      <div class="stats">
+        <div class="stat">
+          <div class="lab">Vendor marketplace · subcontractors</div>
+          <div class="num">$20</div>
+          <div class="unit">per vendor per year · $1.8m ARR across ~88,000 vendors</div>
+          <div class="trend flat">▬ Flat year on year</div>
+        </div>
+        <div class="stat">
+          <div class="lab">Enterprise · head contractors</div>
+          <div class="num">$99,000</div>
+          <div class="unit">per customer per year · $7.5m ARR across 76 customers</div>
+          <div class="trend up">▲ Growing</div>
+        </div>
+      </div>
+      <p class="fig-note">Felix launched as PlantMiner in 2012–13 selling exactly “help civil subs get work”, then pivoted away from vendor monetisation because the builders were the ones who would pay. Listed at $0.47 in January 2021; $0.06 in June 2026.</p>
+    </figure>
+
+    <p>The corroboration is consistent. Oneflare: Domain paid $15m for 35%, Airtasker bought the assets for $9.8m, retired entirely 30 June 2026. hipages — the best-run trades marketplace in Australia, in a segment with 10–100× civil's job frequency — grew tradies 1% year on year at $2,497 ARPU, the proven ANZ ceiling for demand generation. Levelset sold to Procore for US$500m with 250,000 users and 1.3% paying, because what it actually sold was statutory lien deadlines, not leads.</p>
+
+    <p><strong>Why it fails structurally:</strong> discovery is already free — GETS, EstimateOne's free tier, Austroads registers, tier-1 portals. The subcontractor's binding constraint is a <em>gate, not a list</em>: prequalification class, referee reports, a vendor record. Selling a better list to someone stopped by a gate is selling the wrong product.</p>
+
+    <h3>Manage documents and compliance <span class="tag no">Crowded from both ends</span></h3>
+    <p>The pitch “one profile, many head contractors” is already incumbent marketing copy:</p>
+    <ul class="body-list">
+      <li><strong>Cm3</strong> sells “one fee, one year, unlimited clients” — A$399–3,045/yr by risk tier</li>
+      <li><strong>HammerTech</strong> (US$70m from Riverwood) is <strong>free to subcontractors</strong></li>
+      <li><strong>ComplyFlow</strong> is free to contractors and suppliers</li>
+      <li><strong>Austroads National Prequalification System</strong> (Road &amp; Bridge) — “no fee to apply”</li>
+      <li><strong>Tōtika</strong> (CHASNZ) already solves duplication in New Zealand, industry-endorsed and JAS-ANZ audited</li>
+    </ul>
+    <p>You cannot beat free that is funded by someone else's budget.</p>
+    <p><strong>Who pays, settled:</strong> head contractors ≫ subcontractors under mandate &gt; subcontractors voluntarily. LinkSafe is the proof — it sells principals a <em>menu</em> of who to bill. The payer is a setting in someone else's contract. No evidence was found anywhere of subcontractors voluntarily paying meaningfully for compliance absent a mandate. They pay for leads, for faster payment, or for capital.</p>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">§2</span><h2 class="sec-title">The ceiling, arithmetically</h2></div>
+    <p>Built bottom-up from counted units and cross-checked two ways that landed within 7% of each other — size-band arithmetic against CCF's 1,800 and CCNZ's 800 members at roughly 50% penetration.</p>
+
+<pre>TAM = (11,750 × A$900) + (4,230 × A$3,000) + (610 × A$15,000) + (28 × A$60,000)
+    = A$34.1m/yr at 100% share
+
+SAM = A$21.8m/yr        the ~4,868 firms with 5+ employees
+SOM = A$2.2–4.4m ARR    over 5 years, 487–974 customers</pre>
+
+    <figure>
+      <div class="chart-wrap">
+        <figcaption>What A$10m ARR would require</figcaption>
+        <p class="fig-sub">Customers needed as a share of the entire ANZ civil serviceable universe. Anything past the 100% line cannot exist.</p>
+        <div class="bars">
+          <div class="row">
+            <div class="rlab">A$100/mo<span class="qual bad">Impossible</span></div>
+            <div class="track"><div class="bar crit" style="width:95.0%"></div><div class="threshold"></div></div>
+            <div class="val">171%</div>
+          </div>
+          <div class="row">
+            <div class="rlab">A$250/mo<span class="qual">Not credible</span></div>
+            <div class="track"><div class="bar neutral" style="width:38.1%"></div><div class="threshold"></div></div>
+            <div class="val">68.5%</div>
+          </div>
+          <div class="row">
+            <div class="rlab">A$500/mo<span class="qual">Top-decile, needs growth</span></div>
+            <div class="track"><div class="bar neutral" style="width:19.0%"></div><div class="threshold"></div></div>
+            <div class="val">34.2%</div>
+          </div>
+          <div class="row">
+            <div class="rlab">A$1,250/mo<span class="qual bad">Exceeds the 20–199 band</span></div>
+            <div class="track"><div class="bar crit" style="width:60.6%"></div><div class="threshold"></div></div>
+            <div class="val">109%</div>
+          </div>
+        </div>
+        <div class="thresh-key">
+          <div></div>
+          <div class="mark"><span>100% of universe</span></div>
+          <div class="spacer"></div>
+        </div>
+        <p class="fig-note">Bars scaled to 180%. A$1m ARR, by contrast, needs 67 customers at A$1,250/mo — 11% of the 20–199 employee band, and the cheapest path available.</p>
+      </div>
+    </figure>
+
+    <p>And the market is <strong>contracting</strong>: engineering construction work done −5.1% year on year in the June 2026 quarter; Road &amp; Bridge forecast −18% over two years; the transport pipeline falling from $11.4bn per quarter in early 2024 toward $5.2bn by 2029; NSW infrastructure down $2.2bn in real terms.</p>
+
+    <div class="callout">
+      <div class="ctitle">On “can this make me rich”</div>
+      <p>A venture-scale exit needs A$12–17m ARR. This market cannot produce it at any credible price.</p>
+      <p>What it <em>can</em> produce is roughly <strong>A$2–4m ARR at 80% margins with 3–6 people</strong> — about A$1.5–3m a year to an owner, trading at maybe A$8–20m. That is an excellent outcome if you own all of it, and a bad one if you raise institutional money against it, because the fund's case cannot be produced by this TAM. That distinction matters more than the number.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">§3</span><h2 class="sec-title">Three findings that change how you would build</h2></div>
+
+    <h3>The pain is already a salary line, not a software line</h3>
+    <p>Over half of small builders spend 5+ hours a week on regulatory tasks and 68% have considered scaling back over red tape — but <strong>56% have already hired or redeployed staff to absorb it</strong>. There is no unspent compliance budget. You would be displacing a A$45–70k admin: a 3–6 month consultative sale, not a self-serve signup. A 20-person subcontractor already spends A$20–30k a year on software, so asking A$3–12k makes you a <em>replacement</em> — and you must name what you replace.</p>
+
+    <h3>AI deflates this product rather than enabling it</h3>
+    <p>Framework AI ships “Form Fill” — AI prequalification and tender form completion — in September 2026. If filling the form is free, the fee to store the form does not survive. HammerTech is spending its US$70m in the same direction.</p>
+
+    <h3>The category dies by cheap absorption, not announcement</h3>
+    <p>Which makes the failure rate look lower than it is: Damstra A$2.44 → A$0.24 and delisted; Felix −63% since IPO; Assignar moved its head office from Sydney to Denver; Sitemate took roughly nine years to a Series A. Every real exit in the space — Payapps ~US$390m, Levelset US$500m, BuildingConnected US$275m, Flashtract to Trimble — attaches to <strong>payments or bid flow</strong>, enterprise-paid. None is a document library.</p>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">§4</span><h2 class="sec-title">What actually survived</h2></div>
+    <p>Three things, in ascending order of interest.</p>
+
+    <h3>a. Invert the payer <span class="tag maybe">Proven, crowded</span></h3>
+    <p>Sell supply-chain assurance to the principal; make the subcontractor's seat free. The only configuration with a demonstrated revenue base — roughly $99k per customer against $20 per vendor. It is also the configuration everyone is already in.</p>
+
+    <h3>b. Currency, not forms <span class="tag maybe">Underserved</span></h3>
+    <p>The law is forking, not converging. Victoria sits outside WHS harmonisation with its own security-of-payment model commenced 15 April 2026, retrospective to existing contracts; WA retention trusts from A$20,000 since 1 February 2024; Queensland frozen; New Zealand moving to a critical-risk model on 1 April 2027. Critically, <strong>NSW re-made its entire WHS Regulation (SL 2025 No 440), renumbering clauses to sections — so every SWMS and WHS plan in NSW citing “clause 291” is now stale.</strong> That is a re-papering event with a date. Forms are a commodity; knowing which version is current across eight jurisdictions is not.</p>
+
+    <h3>c. The payment-documents wedge <span class="tag maybe">Strongest signal</span></h3>
+    <p>Three agents reached this independently, from different directions:</p>
+    <ul class="body-list">
+      <li>Market sizing named “take a cut of flow — payments, retentions, insurance” as the <em>only</em> route where A$10m ARR comes from ~500 customers rather than ~4,000.</li>
+      <li>Business model found every real exit in the category attaches to payments or bid flow.</li>
+      <li>Regulation found Queensland <strong>explicitly named “lack of adequate accounting software to support trustees to comply”</strong> as a reason for pausing project trust account rollout — a government putting the software gap in writing.</li>
+    </ul>
+    <p>Payment documentation is the one place where the document is not discretionary paperwork but the thing that releases cash: NSW security-of-payment supporting statements under s13(7)–(9), where omission is an offence and a knowingly false statement carries imprisonment; New Zealand statutory retention reporting to the subcontractor at least quarterly since 5 October 2023, with director penalties to $50k; WA retention trusts.</p>
+    <p><strong>The caution:</strong> Queensland's trust rollout is paused with no new date, Payapps is already inside Autodesk, and this is adjacent to — not the same as — what Vaultry is prototyping today. It is a lead to validate, not a conclusion.</p>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">§5</span><h2 class="sec-title">Kill shots, ranked</h2></div>
+
+    <figure>
+      <figcaption>Probability each risk ends the venture</figcaption>
+      <p class="fig-sub">Hermes' own estimates, assigned per front and reconciled across the five memos.</p>
+      <div class="bars">
+        <div class="row">
+          <div class="rlab">A$22m serviceable market, contracting three years</div>
+          <div class="track"><div class="bar teal" style="width:85%"></div></div>
+          <div class="val">85%</div>
+        </div>
+        <div class="row">
+          <div class="rlab">Price-anchored at zero for subcontractors</div>
+          <div class="track"><div class="bar teal" style="width:70%"></div></div>
+          <div class="val">70%</div>
+        </div>
+        <div class="row">
+          <div class="rlab">Pain lives in a salary line, not a software line</div>
+          <div class="track"><div class="bar teal" style="width:65%"></div></div>
+          <div class="val">65%</div>
+        </div>
+        <div class="row">
+          <div class="rlab">No write-path into incumbent portals</div>
+          <div class="track"><div class="bar teal" style="width:65%"></div></div>
+          <div class="val">65%</div>
+        </div>
+        <div class="row">
+          <div class="rlab">Customer mortality below 5 employees</div>
+          <div class="track"><div class="bar teal" style="width:60%"></div></div>
+          <div class="val">60%</div>
+        </div>
+      </div>
+      <p class="fig-note"><strong>On the write-path:</strong> the moat is not storage, it is pushing verified documents <em>into</em> Cm3, Avetta, Rapid Global and LinkSafe. None publishes a partner API, and all four are now private-equity owned with every incentive to keep subcontractor data captive. Without that path you are selling browser automation against four hostile portals. <strong>On mortality:</strong> construction is 26–27% of all Australian corporate failures, and more than 75% of failing firms had fewer than 19 full-time staff.</p>
+    </figure>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">§6</span><h2 class="sec-title">The 30-day test — build nothing</h2></div>
+    <p>Every memo independently recommended primary interviews over further desk research, because <strong>the decisive number does not exist publicly.</strong> No survey, association submission or inquiry was found quantifying how many portals a typical civil subcontractor pays for. The 3–5 estimate underpinning the entire “compliance tax” thesis is inference, not measurement.</p>
+
+    <ol class="steps">
+      <li>
+        <div>
+          <h4>Pull the two datasets the research could not reach</h4>
+          <p>ABS CABEE cube (Division E × subdivision × employment size) and the ATO Small Business Benchmarks. Half a day, A$0.</p>
+          <span class="stop">Stop if the real 5+ employee count is below 4,000.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h4>Twenty calls into the 20–199 employee band</h4>
+          <p>CCF and CCNZ rosters are a public, named universe. One question does most of the work: <em>“Name an invoice you personally paid to get on site — the amount, and who sent it.”</em></p>
+          <span class="stop">Stop if fewer than 5 of 10 can name one — the budget is upstream.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h4>Price test before building</h4>
+          <p>A one-page offer at A$1,250/mo to 30 firms, asking for a A$500 deposit.</p>
+          <span class="stop">Stop if fewer than 3 of 30 deposit, or if more than half say “HammerTech already does that free.”</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h4>Mandate test with five tier-1 procurement leads</h4>
+          <p>Would you accept a third-party evidence feed at all?</p>
+          <span class="stop">Stop if 4+ are locked to Felix or Ariba. Downer has renewed to roughly FY29.</span>
+        </div>
+      </li>
+    </ol>
+    <p style="margin-top:22px"><span class="go">Green light: 5+ deposits <em>and</em> three or more firms independently describing the alternative as “hiring another admin.”</span></p>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">§7</span><h2 class="sec-title">Confidence, and what must be re-checked</h2></div>
+    <p>All primary sources were blocked by this session's network egress policy — ABS, Stats NZ, ASIC, IBISWorld, legislation registries and vendor pricing pages all refused at the proxy. Search worked; fetching did not. <strong>Every figure here is search-synthesised, not read off the source page.</strong></p>
+
+    <div class="twrap">
+      <table>
+        <thead>
+          <tr><th>Claim type</th><th>Confidence</th><th>Why</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Vendor exists, positioning, who it sells to</td><td class="v-ok">High</td><td>Consistently described across many independent results</td></tr>
+          <tr><td>Ownership, acquisitions, funding events</td><td class="v-ok">High</td><td>Widely reported news events, cross-referenced</td></tr>
+          <tr><td>Published list prices</td><td>Medium</td><td>Read from result snippets; may be stale or tier-dependent</td></tr>
+          <tr><td>ABS / Stats NZ unit counts</td><td>Medium–low</td><td>Primary source unreachable; figures are second-hand</td></tr>
+          <tr><td>Platforms a typical sub pays for</td><td class="v-no">Unverified</td><td>No survey, submission or inquiry evidence found to exist</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <div class="ctitle">Do not repeat these three</div>
+      <p><strong>1.</strong> A search summary claimed the SWMS fall-height threshold rose from 2m to 3m in July 2026. It could not be corroborated from any source and should not be repeated until checked.</p>
+      <p><strong>2.</strong> The commencement date of the NSW WHS Regulation 2025 — sources conflict between 22 August 2025, a 1 September 2025 repeal deadline, and January 2026 commentary.</p>
+      <p><strong>3.</strong> Whether NSW and Victoria genuinely have no general licensing regime for civil contractors. If true, it materially shrinks the “licensing forces documentation” argument in the two largest civil markets.</p>
+    </div>
+
+    <p>One credibility warning: the NSW Building Commission expansion (Fair Trading and Building Legislation Amendment Bill 2026, passed 5 August 2026) touches only residential and vertical construction. <strong>It is close to irrelevant to civil.</strong> Citing it as a tailwind in an investor conversation would be a credibility risk.</p>
+  </section>
+
+  <footer>
+    Hermes market intelligence · five parallel research fronts, worked independently and reconciled after the fact.
+    Full memos and methodology in <span style="font-family:var(--f-mono)">research/</span> on branch <span style="font-family:var(--f-mono)">claude/hermes-market-research-ut32o6</span>.
+  </footer>
+
+</div>
