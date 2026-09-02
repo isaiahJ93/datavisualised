@@ -301,7 +301,7 @@ research: **4,400+ government tenders worth QR 70bn+ planned for 2026** [S]. But
 | Saudi mineral endowment cited at **US$1.3 trillion** | [S] — same |
 | **Austrade's own entry advice**: Australian companies compete best with *"a value-added product with a distinct competitive advantage"*; Saudi Arabia has a strong focus on relationships requiring *"commitment and resources to make multiple visits or establish an office"* | [S] — same |
 | Future Minerals Forum, Riyadh, **13–15 January 2026**; **250+ Australian delegates attended the 2025 event** | [S] — [mining.com.au](https://mining.com.au/mets-to-capitalise-on-middle-east-mining-vision-austrade/), [mining.com.au FMF26](https://mining.com.au/australian-saudi-business-council-leads-fmf26-delegation/) |
-| UAE functions as the regional import/distribution hub — bulk of regional materials imported via Dubai with established warehousing and distribution | [S] — [Austrade](https://www.austrade.gov.au/en/news-and-analysis/analysis/fresh-prospects-for-australian-mining-equipment-technology-and-services-mets-in-serve) |
+| UAE functions as the regional import/distribution hub — bulk of regional materials imported via Dubai with established warehousing and distribution | [S] — [Austrade](https://www.austrade.gov.au/en/news-and-analysis/analysis/fresh-prospects-for-australian-mining-equipment-technology-and-services-mets-in-saudi-arabia) |
 
 Two things follow, and both are unfavourable.
 
