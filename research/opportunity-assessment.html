@@ -1,0 +1,988 @@
+<title>The A$6,000 Start</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<style>
+  :root {
+    color-scheme: light;
+    --plane:      #EDEFEE;
+    --surface:    #FBFCFB;
+    --surface-2:  #F4F6F5;
+    --ink:        #111A18;
+    --ink-2:      #4C5854;
+    --muted:      #6F7D79;
+    --rule:       #D5DBD8;
+    --rule-soft:  #E4E8E6;
+    --accent:     #007C62;
+    --accent-ink: #005C48;
+    --accent-wash:#E3EFEB;
+    --rust:       #A4552B;
+    --rust-wash:  #F5E9E1;
+    --critical:   #D03B3B;
+    --bar-neutral:#7C8A86;
+    --shadow:     0 1px 2px rgba(17,26,24,.05), 0 8px 24px -16px rgba(17,26,24,.22);
+
+    --f-display: "IBM Plex Sans Condensed", "Helvetica Neue", Arial, sans-serif;
+    --f-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+    --f-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --plane:      #0B0F0E;
+      --surface:    #141917;
+      --surface-2:  #1B211F;
+      --ink:        #EDF2F0;
+      --ink-2:      #A4B1AD;
+      --muted:      #7E8E89;
+      --rule:       #262E2C;
+      --rule-soft:  #1E2523;
+      --accent:     #38A891;
+      --accent-ink: #5BC0AA;
+      --accent-wash:#142A26;
+      --rust:       #D2793F;
+      --rust-wash:  #2A1D14;
+      --critical:   #E05555;
+      --bar-neutral:#7E8E89;
+      --shadow:     0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.7);
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --plane:      #0B0F0E;
+    --surface:    #141917;
+    --surface-2:  #1B211F;
+    --ink:        #EDF2F0;
+    --ink-2:      #A4B1AD;
+    --muted:      #7E8E89;
+    --rule:       #262E2C;
+    --rule-soft:  #1E2523;
+    --accent:     #38A891;
+    --accent-ink: #5BC0AA;
+    --accent-wash:#142A26;
+    --rust:       #D2793F;
+    --rust-wash:  #2A1D14;
+    --critical:   #E05555;
+    --bar-neutral:#7E8E89;
+    --shadow:     0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.7);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--plane);
+    color: var(--ink);
+    font-family: var(--f-body);
+    font-size: 17px;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .sheet {
+    max-width: 812px;
+    margin: 0 auto;
+    padding: 0 24px 96px;
+  }
+
+  /* ---------- masthead ---------- */
+  .masthead {
+    padding: 72px 0 32px;
+    border-bottom: 2px solid var(--ink);
+  }
+  .eyebrow {
+    font-family: var(--f-display);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    margin: 0 0 20px;
+  }
+  h1 {
+    font-family: var(--f-display);
+    font-size: clamp(40px, 7vw, 64px);
+    font-weight: 700;
+    line-height: 1.02;
+    letter-spacing: -.015em;
+    margin: 0 0 18px;
+    text-wrap: balance;
+  }
+  .standfirst {
+    font-size: 20px;
+    line-height: 1.5;
+    color: var(--ink-2);
+    margin: 0 0 28px;
+    max-width: 60ch;
+    text-wrap: pretty;
+  }
+  .scope {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .scope li {
+    font-family: var(--f-display);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 5px 10px;
+  }
+
+  /* ---------- verdict ---------- */
+  .verdict {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--accent);
+    border-radius: 2px;
+    padding: 32px;
+    margin: 36px 0 0;
+    box-shadow: var(--shadow);
+  }
+  .verdict h2 {
+    font-family: var(--f-display);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 14px;
+  }
+  .verdict p {
+    margin: 0 0 14px;
+    font-size: 19px;
+    line-height: 1.55;
+  }
+  .verdict p:last-child { margin-bottom: 0; }
+  .verdict strong { font-weight: 600; }
+
+  .pull {
+    font-family: var(--f-display);
+    font-size: clamp(21px, 3.4vw, 29px);
+    font-weight: 600;
+    line-height: 1.24;
+    letter-spacing: -.01em;
+    color: var(--ink);
+    margin: 44px 0;
+    padding: 0 0 0 22px;
+    border-left: 3px solid var(--accent);
+    text-wrap: balance;
+  }
+  .pull .src {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: .02em;
+    color: var(--muted);
+    margin-top: 14px;
+    line-height: 1.5;
+  }
+
+  /* ---------- sections ---------- */
+  section { padding-top: 56px; }
+  .sec-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 10px;
+    margin-bottom: 26px;
+  }
+  .sec-num {
+    font-family: var(--f-mono);
+    font-size: 13px;
+    color: var(--accent-ink);
+    letter-spacing: .02em;
+    flex: none;
+  }
+  h2.sec-title {
+    font-family: var(--f-display);
+    font-size: 27px;
+    font-weight: 700;
+    letter-spacing: -.01em;
+    margin: 0;
+    line-height: 1.2;
+  }
+  h3 {
+    font-family: var(--f-display);
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -.005em;
+    margin: 38px 0 10px;
+    line-height: 1.28;
+  }
+  h3 .tag {
+    font-family: var(--f-display);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    vertical-align: 2px;
+    margin-left: 8px;
+    padding: 3px 7px;
+    border-radius: 2px;
+  }
+  .tag.no { color: var(--critical); background: var(--rust-wash); }
+  .tag.maybe { color: var(--accent-ink); background: var(--accent-wash); }
+
+  p { margin: 0 0 16px; max-width: 68ch; text-wrap: pretty; }
+  a { color: var(--accent-ink); }
+  ul.body-list { margin: 0 0 16px; padding-left: 20px; max-width: 68ch; }
+  ul.body-list li { margin-bottom: 8px; }
+
+  /* ---------- data figures ---------- */
+  figure {
+    margin: 30px 0;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 24px;
+  }
+  figcaption {
+    font-family: var(--f-display);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .01em;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .fig-sub {
+    font-family: var(--f-display);
+    font-size: 12.5px;
+    font-weight: 400;
+    color: var(--muted);
+    margin-bottom: 20px;
+    line-height: 1.45;
+  }
+  .fig-note {
+    font-family: var(--f-display);
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.5;
+    margin: 18px 0 0;
+    padding-top: 14px;
+    border-top: 1px solid var(--rule-soft);
+  }
+
+  /* stat pair */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 2px;
+    background: var(--rule-soft);
+    border: 1px solid var(--rule-soft);
+  }
+  .stat { background: var(--surface); padding: 20px; }
+  .stat .lab {
+    font-family: var(--f-display);
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .stat .num {
+    font-family: var(--f-display);
+    font-size: 38px;
+    font-weight: 700;
+    letter-spacing: -.02em;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink);
+  }
+  .stat .unit {
+    font-family: var(--f-display);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink-2);
+    margin-top: 8px;
+    line-height: 1.4;
+  }
+  .stat .trend {
+    font-family: var(--f-display);
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    margin-top: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .trend.flat { color: var(--critical); }
+  .trend.up { color: var(--accent-ink); }
+
+  /* bar rows */
+  .bars { display: flex; flex-direction: column; gap: 2px; }
+  .row {
+    display: grid;
+    grid-template-columns: minmax(0, 34%) 1fr auto;
+    gap: 16px;
+    align-items: center;
+    padding: 7px 0;
+  }
+  .row .rlab {
+    font-family: var(--f-display);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink-2);
+    line-height: 1.3;
+    font-variant-numeric: tabular-nums;
+  }
+  .row .rlab .qual {
+    display: block;
+    font-size: 11.5px;
+    font-weight: 500;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 3px;
+  }
+  .row .rlab .qual.bad { color: var(--critical); }
+  .track {
+    position: relative;
+    height: 26px;
+    display: flex;
+    align-items: center;
+  }
+  .bar {
+    height: 22px;
+    border-radius: 0 4px 4px 0;
+    transition: filter .15s ease;
+  }
+  .row:hover .bar { filter: brightness(1.08) saturate(1.06); }
+  .bar.teal { background: var(--accent); }
+  .bar.neutral { background: var(--bar-neutral); }
+  .bar.crit { background: var(--critical); }
+  .val {
+    font-family: var(--f-display);
+    font-size: 14px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink);
+    white-space: nowrap;
+    text-align: right;
+    width: 56px;
+  }
+  .threshold {
+    position: absolute;
+    left: 55.6%;
+    top: -5px;
+    bottom: -5px;
+    width: 0;
+    border-left: 1px dashed var(--ink-2);
+    opacity: .5;
+    pointer-events: none;
+  }
+  .thresh-key {
+    display: grid;
+    grid-template-columns: minmax(0, 34%) 1fr auto;
+    gap: 16px;
+    margin-top: 6px;
+  }
+  .thresh-key .mark {
+    position: relative;
+    height: 14px;
+  }
+  .thresh-key .mark span {
+    position: absolute;
+    left: 55.6%;
+    transform: translateX(-50%);
+    font-family: var(--f-display);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    white-space: nowrap;
+  }
+  .thresh-key .spacer { width: 56px; }
+
+  /* ---------- tables ---------- */
+  .twrap { overflow-x: auto; margin: 26px 0; border: 1px solid var(--rule); border-radius: 2px; }
+  table { border-collapse: collapse; width: 100%; background: var(--surface); font-size: 14.5px; }
+  th, td {
+    text-align: left;
+    padding: 11px 14px;
+    border-bottom: 1px solid var(--rule-soft);
+    vertical-align: top;
+  }
+  th {
+    font-family: var(--f-display);
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    background: var(--surface-2);
+    white-space: nowrap;
+  }
+  td { font-family: var(--f-display); font-size: 14px; color: var(--ink-2); line-height: 1.45; }
+  td:first-child { color: var(--ink); font-weight: 500; }
+  td.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+  tr:last-child td { border-bottom: 0; }
+  .v-no { color: var(--critical); font-weight: 600; }
+  .v-ok { color: var(--accent-ink); font-weight: 600; }
+
+  /* ---------- code / arithmetic ---------- */
+  pre {
+    font-family: var(--f-mono);
+    font-size: 13px;
+    line-height: 1.7;
+    background: var(--surface-2);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 18px;
+    overflow-x: auto;
+    margin: 24px 0;
+    color: var(--ink);
+  }
+
+  /* ---------- callouts ---------- */
+  .callout {
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--rust);
+    background: var(--surface);
+    border-radius: 2px;
+    padding: 20px 22px;
+    margin: 28px 0;
+  }
+  .callout .ctitle {
+    font-family: var(--f-display);
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 10px;
+  }
+  .callout p { margin-bottom: 10px; font-size: 16px; }
+  .callout p:last-child { margin-bottom: 0; }
+
+  /* ---------- test steps ---------- */
+  .steps { list-style: none; margin: 26px 0 0; padding: 0; counter-reset: s; }
+  .steps > li {
+    counter-increment: s;
+    display: grid;
+    grid-template-columns: 34px 1fr;
+    gap: 16px;
+    padding: 18px 0;
+    border-top: 1px solid var(--rule-soft);
+  }
+  .steps > li::before {
+    content: counter(s);
+    font-family: var(--f-mono);
+    font-size: 13px;
+    color: var(--accent-ink);
+    padding-top: 3px;
+  }
+  .steps h4 {
+    font-family: var(--f-display);
+    font-size: 16.5px;
+    font-weight: 600;
+    margin: 0 0 6px;
+    line-height: 1.3;
+  }
+  .steps p { margin: 0 0 8px; font-size: 15.5px; }
+  .steps p:last-child { margin-bottom: 0; }
+  .stop {
+    font-family: var(--f-display);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--critical);
+    display: block;
+  }
+  .go {
+    font-family: var(--f-display);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--accent-ink);
+    display: block;
+  }
+
+  /* ---------- footer ---------- */
+  footer {
+    margin-top: 64px;
+    padding-top: 22px;
+    border-top: 2px solid var(--ink);
+    font-family: var(--f-display);
+    font-size: 12.5px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 620px) {
+    body { font-size: 16px; }
+    .sheet { padding: 0 18px 72px; }
+    .row { grid-template-columns: 1fr auto; gap: 6px 12px; }
+    .row .rlab { grid-column: 1 / -1; }
+    .thresh-key { grid-template-columns: 1fr auto; }
+    .thresh-key > :first-child { display: none; }
+    .verdict { padding: 24px; }
+    figure { padding: 18px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+</style>
+
+<style>
+  /* additions specific to this document */
+  .gate {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--critical);
+    border-radius: 2px;
+    padding: 28px;
+    margin: 36px 0;
+    box-shadow: var(--shadow);
+  }
+  .gate .ctitle {
+    font-family: var(--f-display);
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: .11em;
+    text-transform: uppercase;
+    color: var(--critical);
+    margin-bottom: 12px;
+  }
+  .gate h3 { margin-top: 0; font-size: 22px; }
+  .gate p { font-size: 16.5px; }
+  .gate p:last-child { margin-bottom: 0; }
+
+  .keyfacts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2px;
+    background: var(--rule-soft);
+    border: 1px solid var(--rule-soft);
+    margin: 26px 0;
+  }
+  .kf { background: var(--surface); padding: 16px 18px; }
+  .kf .k {
+    font-family: var(--f-display);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 7px;
+    line-height: 1.35;
+  }
+  .kf .v {
+    font-family: var(--f-display);
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -.01em;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+    line-height: 1.1;
+  }
+
+  .twocol {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: var(--rule-soft);
+    border: 1px solid var(--rule-soft);
+    margin: 26px 0;
+  }
+  .twocol > div { background: var(--surface); padding: 20px; }
+  .twocol h4 {
+    font-family: var(--f-display);
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    margin: 0 0 12px;
+  }
+  .twocol .weak h4 { color: var(--critical); }
+  .twocol .strong h4 { color: var(--accent-ink); }
+  .twocol ul { margin: 0; padding-left: 18px; }
+  .twocol li {
+    font-family: var(--f-display);
+    font-size: 14px;
+    color: var(--ink-2);
+    margin-bottom: 7px;
+    line-height: 1.45;
+  }
+
+  .phase {
+    display: grid;
+    grid-template-columns: 118px 1fr;
+    gap: 20px;
+    padding: 20px 0;
+    border-top: 1px solid var(--rule-soft);
+  }
+  .phase .when {
+    font-family: var(--f-mono);
+    font-size: 12.5px;
+    color: var(--accent-ink);
+    line-height: 1.5;
+    padding-top: 3px;
+  }
+  .phase h4 {
+    font-family: var(--f-display);
+    font-size: 17px;
+    font-weight: 600;
+    margin: 0 0 6px;
+  }
+  .phase p { margin: 0; font-size: 15.5px; }
+
+  .ruled-out { margin: 26px 0 0; }
+  .ro {
+    display: grid;
+    grid-template-columns: minmax(0,190px) 1fr;
+    gap: 20px;
+    padding: 16px 0;
+    border-top: 1px solid var(--rule-soft);
+    align-items: start;
+  }
+  .ro .what {
+    font-family: var(--f-display);
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.35;
+  }
+  .ro .what .verdict {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    color: var(--critical);
+    margin-top: 4px;
+  }
+  .ro .why {
+    font-family: var(--f-display);
+    font-size: 14px;
+    color: var(--ink-2);
+    line-height: 1.5;
+  }
+  @media (max-width: 620px) {
+    .twocol { grid-template-columns: 1fr; }
+    .phase, .ro { grid-template-columns: 1fr; gap: 6px; }
+  }
+</style>
+
+<div class="sheet">
+
+  <header class="masthead">
+    <p class="eyebrow">Hermes research · seven independent fronts</p>
+    <h1>The A$6,000 Start</h1>
+    <p class="standfirst">With Supply Nation registration, under A$50,000, and barely trading — what actually makes money, in any sector?</p>
+    <ul class="scope">
+      <li>Sector-agnostic scan</li>
+      <li>Australia &amp; NZ</li>
+      <li>Pre-revenue</li>
+      <li>September 2026</li>
+    </ul>
+  </header>
+
+  <div class="verdict">
+    <h2>Verdict</h2>
+    <p><strong>Nothing here makes you extremely rich.</strong> One thing here makes you money within 12 months at near-zero risk, and buys the position from which a larger move becomes possible.</p>
+    <p>Seven research fronts — procurement mandates, low-capital niches, capital flows, non-construction categories, regulated sectors, AI and export — ran independently. Two of them ranked the same business first, from opposite directions and without seeing each other's work.</p>
+  </div>
+
+  <div class="gate">
+    <div class="ctitle">Do this before anything else</div>
+    <h3>Your eligibility has a deadline</h3>
+    <p>On <strong>1 July 2026</strong> the Commonwealth definition of an Indigenous business changed from <strong>50% owned</strong> to <strong>51%+ owned AND controlled</strong>. Supply Nation <em>Registered</em> is the old tier. <strong>Certified</strong> is the new one — and certification is <strong>free</strong>, with roughly four-day verification.</p>
+    <p>Transitional cover runs through FY2026–27, so eligibility ends around 1 July 2027. Three separate memos flagged this independently. <strong>If the entity sits at exactly 50%, or control is not demonstrable, every opportunity in this document expires on a known date.</strong></p>
+    <p>A second, less obvious gate: Supply Nation listing requires <strong>A$50k minimum annual revenue or ~6 months demonstrated trading</strong>. If you are not listed on Indigenous Business Direct, buyers cannot find you — which makes the direct-award mechanisms below inert. One email resolves it.</p>
+  </div>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">§1</span><h2 class="sec-title">The business that survived all seven fronts</h2></div>
+    <p><strong>Indigenous-owned bid writing, tender response and Aboriginal Participation Plan authorship — sold as a service, not software.</strong></p>
+    <p>The low-capital analysis ranked it <strong>#1 of 11 niches</strong>, at roughly 10.7× gross profit per dollar of startup capital. The AI analysis ranked it <strong>#1 of 8</strong>, as the only option with a moat a solo operator can actually hold.</p>
+
+    <div class="keyfacts">
+      <div class="kf"><div class="k">Startup capital</div><div class="v">~A$6,000</div></div>
+      <div class="kf"><div class="k">Licences needed</div><div class="v">None</div></div>
+      <div class="kf"><div class="k">To first revenue</div><div class="v">2–6 wks</div></div>
+      <div class="kf"><div class="k">Gross margin</div><div class="v">~85%</div></div>
+      <div class="kf"><div class="k">Cash CAC</div><div class="v">~A$0</div></div>
+    </div>
+
+    <h3>Why it wins where everything else fails</h3>
+    <p><strong>It escapes the working-capital trap that kills the alternatives.</strong> This is the decisive arithmetic in the entire body of research, and it is about channel, not cost control.</p>
+
+    <figure>
+      <figcaption>Working capital tied up per A$100k of annual revenue</figcaption>
+      <p class="fig-sub">How you get paid matters roughly 7× more than what you charge. Lower is better.</p>
+      <div class="bars">
+        <div class="row">
+          <div class="rlab">Fixed fee, 50% deposit<span class="qual">Advisory work</span></div>
+          <div class="track"><div class="bar neutral" style="width:1.5%"></div></div>
+          <div class="val">~A$0</div>
+        </div>
+        <div class="row">
+          <div class="rlab">Direct to government<span class="qual">5-day terms, weekly invoicing</span></div>
+          <div class="track"><div class="bar neutral" style="width:14.7%"></div></div>
+          <div class="val">A$2.0k</div>
+        </div>
+        <div class="row">
+          <div class="rlab">Direct to government<span class="qual">Monthly invoicing</span></div>
+          <div class="track"><div class="bar neutral" style="width:25.2%"></div></div>
+          <div class="val">A$3.5k</div>
+        </div>
+        <div class="row">
+          <div class="rlab">Tier-1 subcontract<span class="qual bad">30-day contract terms</span></div>
+          <div class="track"><div class="bar crit" style="width:58.0%"></div></div>
+          <div class="val">A$8.1k</div>
+        </div>
+        <div class="row">
+          <div class="rlab">Tier-1 subcontract<span class="qual bad">Real-world, 60 days late</span></div>
+          <div class="track"><div class="bar crit" style="width:100%"></div></div>
+          <div class="val">A$13.9k</div>
+        </div>
+      </div>
+      <p class="fig-note">Modelled on direct costs at 71% of revenue, wages weekly against stated invoicing terms. Statutory protection exists — the NSW Security of Payment Act caps subcontractor terms at 20 business days and voids longer ones — but 7.15% of construction invoices still run more than 60 days overdue, and enforcing your rights means adjudicating against your only customer.</p>
+    </figure>
+
+    <p>That converts directly into a ceiling on the size of business you can operate:</p>
+
+    <figure>
+      <div class="stats">
+        <div class="stat">
+          <div class="lab">Advisory, deposits, direct billing</div>
+          <div class="num">A$252k</div>
+          <div class="unit">revenue ceiling on A$35k of deployable float</div>
+          <div class="trend up">▲ Capital stays working</div>
+        </div>
+        <div class="stat">
+          <div class="lab">After buying a ute and sign kit</div>
+          <div class="num">A$79k</div>
+          <div class="unit">the same A$35k, minus ~A$24k of assets</div>
+          <div class="trend flat">▼ Two-thirds of the business gone</div>
+        </div>
+      </div>
+      <p class="fig-note">Buying delivery capability before you have a customer cuts the achievable business by two-thirds — and it will feel like progress while it happens. This is the most common way capital-poor contractors fail.</p>
+    </figure>
+
+    <p><strong>The buyer has already decided to spend.</strong> A tender fee of A$4,000–8,000 attaches to a contract worth 10–100× that. This is the exact inverse of the compliance buyer in the first round of research, who was asked to pay for an obligation carrying no upside.</p>
+
+    <p><strong>Indigenous ownership is a genuine qualification here, not a door-opener.</strong> Writing an Aboriginal Participation Plan is work the ownership legitimately strengthens. That matters commercially, and it matters for integrity — it is the one use of the status that cannot be characterised as black cladding.</p>
+
+    <h3>Two buyers, and the second one is the business</h3>
+    <p><strong>Buyer A — Indigenous businesses bidding for set-aside work.</strong> More than 1,200 won Commonwealth contracts last year, with acute need and little internal bid capability. But the average contract is <strong>~A$123k</strong>, so a firm winning two a year cannot fund a A$48k retainer. Sell only to Buyer A and this is the last idea in a new coat of paint.</p>
+    <p><strong>Buyer B — non-Indigenous civil and infrastructure primes.</strong> They must evidence Indigenous participation to win major public work, and someone has to write that section. They pay from an existing bid cost line, and <strong>they cannot become Indigenous-owned to avoid needing you.</strong> Around 610 ANZ civil firms sit in the 20–199 employee band with real bid budgets.</p>
+    <p>The business only works if <strong>Buyer B is at least half the book</strong>.</p>
+
+<pre>Per-tender, solo:  ~115 delivery days/yr ÷ ~2.5 days per tender with AI leverage
+                   = 35–45 tenders/yr at ~A$5,000
+                   Year 1: A$90–125k      Year 2: A$175–225k
+
+Retainer model:    A$3,000–6,000/mo "bid function as a service"
+                   8 clients × A$4,000 = A$384k/yr
+
+Ceiling:           ~670 serviceable firms × 2–4% attach = 13–27 clients
+                   ~A$960k–1m/yr with 3–5 people</pre>
+
+    <p>Market rates are established: <strong>A$165 + GST/hr</strong>, <strong>A$4,000–8,000</strong> per typical tender, <strong>A$15,000–40,000</strong> for majors. An in-house bid coordinator costs ~A$90–130k plus on-costs — that is the anchor for the retainer pitch. <strong>A retainer book is saleable; a per-tender pipeline is not.</strong></p>
+
+    <p><strong>Distribution is 20 customers, not 100.</strong> AusTender contract notices are free and public: every Indigenous business that won Commonwealth work in the last 12 months is a named lead with a proven bidding habit and a proven budget. Near-zero cash acquisition cost is precisely why this fits under A$50k.</p>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">§2</span><h2 class="sec-title">Where the mandates actually bite</h2></div>
+    <p>The arbitrage is in how a mandate is written.</p>
+
+    <div class="twocol">
+      <div class="weak">
+        <h4>Weak — avoid relying on these</h4>
+        <ul>
+          <li>Expressed as a <strong>% of contract value</strong></li>
+          <li>"Employment <strong>or</strong> subcontracting" — the buyer chooses, and hiring three labourers is cheaper than onboarding you</li>
+          <li>Satisfiable by "education, training or capability building" spend</li>
+        </ul>
+      </div>
+      <div class="strong">
+        <h4>Strong — build on these</h4>
+        <ul>
+          <li>Expressed as a <strong>% of contract count</strong> — a A$25k contract earns the same credit as a A$25m one</li>
+          <li><strong>Direct-award permissions</strong> that skip open tender entirely</li>
+        </ul>
+      </div>
+    </div>
+
+    <p><strong>Sell small, sell direct, sell often.</strong> Three doors let a business with no past performance win, because they are limited approaches rather than open tenders:</p>
+    <ul class="body-list">
+      <li><strong>Exemption 16 (Commonwealth Procurement Rules)</strong> — direct award to an Indigenous SME. The nuance that matters: it exempts you from open-tender machinery that only engages <strong>above A$80,000</strong>. Below that a buyer can already engage anyone directly, so the exemption adds nothing. Its value sits above A$80k.</li>
+      <li><strong>Mandatory Set-Aside</strong> — first refusal at any value in remote Australia, and <strong>A$80k–200k</strong> elsewhere.</li>
+      <li><strong>NSW direct engagement up to A$250,000</strong>, permitted even where a mandated panel exists.</li>
+    </ul>
+    <p><strong>The sweet spot is the A$80k–200k overlap.</strong> A A$45,000 proposal throws away the best asset in the business.</p>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">§3</span><h2 class="sec-title">What was ruled out</h2></div>
+
+    <div class="ruled-out">
+      <div class="ro">
+        <div class="what">Gulf oil &amp; gas<span class="verdict">Hard no</span></div>
+        <div class="why">Civil construction is not a tradeable service — "exporting" it means a licensed, bonded entity in-country, which is foreign direct investment. <strong>~A$425–450k before the first invoice.</strong> Aramco vendor registration requires 2–3 years of audited financials, a document that cannot be created faster than time passes. Its iktva local-content score hit 70% in Feb 2026: a supplier with no Saudi payroll scores near zero and <em>damages the buying officer's own KPI</em>. The Line was suspended Sept 2025 and scaled from 170km to ~2km. CIMIC, Australia's largest contractor, wrote off A$1.23bn and left the region.</div>
+      </div>
+      <div class="ro">
+        <div class="what">Indigenous-to-Indigenous trade<span class="verdict">Distraction</span></div>
+        <div class="why">IPETCA is non-binding and funds missions, not contracts. Canada's PSIB requires owners be <em>resident in Canada</em>. New Zealand requires Māori ownership. Only 1.5% of First Nations businesses export at all, and those that do sell culture, IP and product — never dirt.</div>
+      </div>
+      <div class="ro">
+        <div class="what">Health, care and financial services<span class="verdict">Not for 24 months</span></div>
+        <div class="why">Care is a working-capital and compliance business and you have neither. APRA's CPS 230 imposes seven mandatory contract clauses on <em>material</em> service providers that a micro-business cannot credibly sign — closing the high-value door permanently, though not the one you would use. At a bank you fail the financial-viability gate first: two to three years of statements.</div>
+      </div>
+      <div class="ro">
+        <div class="what">Construction AI software<span class="verdict">Do not enter</span></div>
+        <div class="why">Document Crunch raised US$32.5m, reached 400+ customers, and was acquired by Trimble in Apr 2026. <strong>Three months later Procore shipped contract review as one of five agents in its entry-level bundle.</strong> The control experiment also already ran: Bidhive, a Brisbane bid-management platform in exactly this domain, reached ~US$210k revenue in 2023 — <em>down</em> from US$233k in 2021 — and was acquired by Responsive. The service it tried to automate still bills A$4,000–8,000 per tender.</div>
+      </div>
+      <div class="ro">
+        <div class="what">Traffic control, labour hire<span class="verdict">Defer to year 2</span></div>
+        <div class="why">30% gross margin at A$70/hr and ~A$34k gross profit per controller annually, but A$8–14k of working capital per A$100k of revenue, and you need 4–5 heads to fund one supervisor. The market is consolidating and distressed — Altus is ~5,500 staff after rolling up three competitors, with administrators warning of further failures through 2026.</div>
+      </div>
+      <div class="ro">
+        <div class="what">Cultural heritage monitoring<span class="verdict">Not available</span></div>
+        <div class="why">Gated by <em>statutory Traditional Owner standing</em>, not business ownership. No standing on that country, no work. This was my suggestion in an earlier round and it was wrong.</div>
+      </div>
+      <div class="ro">
+        <div class="what">The JV shortcut<span class="verdict">The trap</span></div>
+        <div class="why">Borrowing a non-Indigenous partner's plant and track record is the textbook black-cladding structure the reforms exist to catch. Supply Nation now takes a <strong>daily ASIC feed</strong> for real-time audits, launched an integrity unit in Oct 2025, and from 2026 requires face-to-face re-certification interviews verifying ownership, management and control. Removal from the directory ends the business. The correct answer to "no plant" is <strong>IBA asset finance</strong> — reportedly start-up loans to A$150k with up to 30% as grant.</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">§4</span><h2 class="sec-title">The expectations correction</h2></div>
+    <p>Three findings that between them dismantle the optimistic version of this — including things I told you earlier in this conversation that the research did not support.</p>
+
+    <figure>
+      <figcaption>Indigenous status is a queue ticket, not a moat</figcaption>
+      <p class="fig-sub">Supply Nation verified businesses against those winning any Commonwealth contract, FY2024–25.</p>
+      <div class="stats">
+        <div class="stat">
+          <div class="lab">Verified Indigenous businesses</div>
+          <div class="num">6,000+</div>
+          <div class="unit">listed with Supply Nation</div>
+        </div>
+        <div class="stat">
+          <div class="lab">Won any Commonwealth contract</div>
+          <div class="num">1,200</div>
+          <div class="unit">roughly four in five won nothing</div>
+        </div>
+      </div>
+      <p class="fig-note">You are not competing against non-Indigenous firms. You are competing against Indigenous firms with a decade of past performance — and in the policy's first eight years, <strong>50% of A$7bn went to 18 businesses</strong>, with half of all contracts by count going to 11. Canberra firms took 40% of contract count. Model yourself in the tail, not at the A$1.33m mean.</p>
+    </figure>
+
+    <p><strong>No evidence was found that tier-1s struggle to find Indigenous subcontractors.</strong> Hermes searched for it directly and found nothing. Worse, the mandates can usually be satisfied without you — the Commonwealth minimum is "4% of workforce <em>or</em> 4% of contract value subcontracted", at the head contractor's choice, and NSW's APIC 1.5% counts employment, training and consultation. The Commonwealth is also <em>hitting</em> its targets, exceeding both volume and value in FY2024–25, so no panicked buyer exists. That premise was the optimistic core of the earlier framing and it does not hold.</p>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">§5</span><h2 class="sec-title">The sequence</h2></div>
+    <p>Cash-in-12-months and a large outcome pull in opposite directions here. Fast-cash categories have the lowest ceilings; high-ceiling categories need capital and staff you lack; the JV route to scale is being deliberately narrowed. So the structure is sequential, not simultaneous.</p>
+
+    <div class="phase">
+      <div class="when">Months<br>0–12</div>
+      <div>
+        <h4>Buy references, not revenue</h4>
+        <p>Advisory delivery at 85% margins with no working capital. Target A$90–125k. Year one's real asset is the referee list and the trading history — which is what unlocks certification standing, IBA finance and prequalification.</p>
+      </div>
+    </div>
+    <div class="phase">
+      <div class="when">Months<br>12–36</div>
+      <div>
+        <h4>Convert references into a position with a ceiling</h4>
+        <p>Retainer book toward A$384k. Use IBA finance — not a joint venture — if delivery capability is genuinely warranted by then.</p>
+      </div>
+    </div>
+    <div class="phase">
+      <div class="when">Month 18</div>
+      <div>
+        <h4>Reopen the large-outcome question</h4>
+        <p>With real pipeline data rather than speculation. Two routes worth examining then, neither researched here: the UK Social Value Model and Canada's 5% Indigenous procurement target as export analogues for a <em>knowledge</em> service, and a trade sale of a retainer book at 1–3× revenue.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="ctitle">On getting extremely rich</div>
+      <p>Probability of a venture-scale outcome from this starting position is <strong>low single digits</strong>. Nothing in the 2026 landscape changes that for an unfunded solo operator, and no research front found a path from under A$50k and no trading history to extreme wealth that was not fantasy.</p>
+      <p>That is not a reason to skip this. It is a reason to take the version that costs <strong>A$6,000 instead of A$50,000</strong>, and to keep the capital intact for the move you can only see from month 18.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">§6</span><h2 class="sec-title">The 30-day test — build nothing</h2></div>
+
+    <ol class="steps">
+      <li>
+        <div>
+          <h4>The eligibility gate · A$0 · 3 days</h4>
+          <p>Written confirmation from Supply Nation and NIAA on the 51% owned-and-controlled test, plus your Indigenous Business Direct listing status. Upgrade Registered → Certified.</p>
+          <span class="stop">Stop if it fails and cannot be restructured — the entire thesis expires.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h4>The budget test · A$0–500 · 3 weeks</h4>
+          <p>Twelve calls. Six Indigenous businesses pulled free from AusTender contract notices: <em>"what did your last tender cost you in hours and cash, and who wrote it?"</em> Six prime bid managers: <em>"who writes your Indigenous Participation Plan section, and what line does it come from?"</em></p>
+          <span class="stop">Stop if fewer than 3 of 12 name a dollar figure they already spend.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h4>The revenue test · A$300–1,000 · 2 weeks</h4>
+          <p>Not a landing page — <strong>win one paid engagement.</strong> A live tender response at A$2,000 fixed plus A$3,000 on award, and a A$1,500 Participation Plan module.</p>
+          <span class="stop">Stop at zero paid engagements from 20 qualified conversations.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h4>The saturation check · A$0 · 4 hours</h4>
+          <p>Filter Indigenous Business Direct for <strong>Certified</strong> suppliers by state and category.</p>
+          <span class="stop">More than 15 in a category means it is not scarce.</span>
+          <span class="go">Fewer than 5 with live demand is a go.</span>
+        </div>
+      </li>
+    </ol>
+
+    <div class="callout">
+      <div class="ctitle">What not to do in the next 30 days</div>
+      <p>No product code, no grant application, no landing page, no domain purchase, no credentials. Each is a way of avoiding the revenue test.</p>
+      <p>Specifically: <strong>DISP membership, ISO 27001, security clearances and NDIS registration would consume the entire A$50k and unlock nothing</strong> until you have staff and past performance. Buying credentials is how capital-poor businesses answer a demand problem with a spending problem.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">§7</span><h2 class="sec-title">Confidence</h2></div>
+    <p>Same constraint as the first round: <strong>the network egress policy blocked every primary source</strong> — NIAA, Supply Nation, ABS, AusTender, Defence, Austrade, and all vendor pricing pages. Search worked; fetching did not. Every figure is search-synthesised rather than read off the page, and each memo grades its own claims.</p>
+
+    <h3>Verify before acting</h3>
+    <ul class="body-list">
+      <li>The exact transition date and terms of the 51% rule — <strong>the memos disagree</strong>: already in force, versus covered to 1 July 2027</li>
+      <li>Whether the Management Advisory Services / People Panel off-panel First Nations flexibility allowance exists — single-sourced, and panelled categories depend on it</li>
+      <li>IBA finance terms: loan limits, grant proportion, trading-history requirement</li>
+      <li>Supply Nation certification fee and the minimum-trading test for directory listing</li>
+      <li>Whether the 3% Indigenous participation clause actually sits in the Downer, Ventia and Service Stream base-services contracts</li>
+    </ul>
+
+    <div class="callout">
+      <div class="ctitle">Not found — and possibly not public</div>
+      <p>Any measurement of Australian bid-fee movement 2023→2026; whether traffic-management majors subcontract to Indigenous SMEs; corporate RAP Indigenous spend by category. <strong>Do not let anyone fill these with plausible numbers.</strong></p>
+    </div>
+  </section>
+
+  <footer>
+    Hermes market intelligence · seven parallel research fronts, worked independently and reconciled after the fact.
+    Full memos and methodology in <span style="font-family:var(--f-mono)">research/</span> on branch <span style="font-family:var(--f-mono)">claude/hermes-market-research-ut32o6</span>.
+  </footer>
+
+</div>
