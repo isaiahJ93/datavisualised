@@ -1,0 +1,1016 @@
+<title>15 m Bag Gantry</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --paper:#F6F7F5; --paper-2:#ECEEEA; --ink:#1B2430; --ink-2:#4B5563; --rule:#C8CED3; --rule-2:#DFE3E6;
+  --steel:#2F5D8A; --steel-2:#DCE7F2; --orange:#C9561F; --orange-2:#F7E3D8;
+  --display:"Barlow Condensed","Arial Narrow","Helvetica Neue",Arial,sans-serif;
+  --body:"Source Sans 3","Source Sans Pro","Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:"IBM Plex Mono","SFMono-Regular",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --paper:#15191E; --paper-2:#1E242B; --ink:#E7EBEF; --ink-2:#A6B0BA; --rule:#3A434D; --rule-2:#2A323A;
+  --steel:#7FB0E0; --steel-2:#22364B; --orange:#F08A50; --orange-2:#3E2418; } }
+:root[data-theme="dark"]{
+  --paper:#15191E; --paper-2:#1E242B; --ink:#E7EBEF; --ink-2:#A6B0BA; --rule:#3A434D; --rule-2:#2A323A;
+  --steel:#7FB0E0; --steel-2:#22364B; --orange:#F08A50; --orange-2:#3E2418; }
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:32px 24px 64px}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.05;margin:0;text-wrap:balance;letter-spacing:.005em}
+h1{font-size:clamp(40px,6vw,64px);text-transform:uppercase}
+h2{font-size:30px;text-transform:uppercase;letter-spacing:.02em;margin-bottom:14px}
+h3{font-size:21px;margin-bottom:6px}
+p{margin:0 0 12px;max-width:68ch}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2)}
+.tb{border:1.5px solid var(--ink);display:grid;grid-template-columns:1fr auto;gap:0;margin-bottom:36px}
+.tb-main{padding:22px 26px 20px;border-right:1.5px solid var(--ink)}
+.tb-side{display:grid;grid-template-rows:auto auto auto;min-width:260px}
+.tb-side > div{padding:12px 18px;border-bottom:1px solid var(--rule)}
+.tb-side > div:last-child{border-bottom:0}
+.tb-side .lab{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);display:block;margin-bottom:2px}
+.tb-side .val{font-family:var(--display);font-size:22px;font-weight:600;line-height:1.1}
+.lede{font-size:19px;max-width:70ch;margin-top:12px}
+.status{display:inline-block;margin-top:10px;padding:5px 10px;border:1.5px solid var(--orange);color:var(--orange);font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;background:var(--orange-2)}
+section{margin:0 0 44px}
+.spec{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:0 36px;border-top:1.5px solid var(--ink)}
+.spec div{display:grid;grid-template-columns:150px 1fr;gap:12px;padding:10px 0;border-bottom:1px solid var(--rule-2);align-items:baseline}
+.spec dt{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);margin:0}
+.spec dd{margin:0;font-size:16px}
+.spec dd b{font-weight:600}
+.checks{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px 36px}
+.checks li{padding:8px 0 6px;border-bottom:1px solid var(--rule-2)}
+.chk-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.chk-grp{font-family:var(--display);font-size:20px;font-weight:600}
+.chk-val{font-family:var(--mono);font-size:16px;font-variant-numeric:tabular-nums}
+.bar{height:7px;background:var(--paper-2);border:1px solid var(--rule);margin:6px 0 6px;position:relative}
+.bar span{display:block;height:100%;background:var(--steel)}
+.chk-desc{font-size:14px;color:var(--ink-2);line-height:1.35}
+.chk-num{font-family:var(--mono);font-size:12.5px;white-space:nowrap}
+.checks-note{font-size:15px;color:var(--ink-2);margin-top:14px;max-width:80ch}
+figure{margin:0 0 28px;border:1px solid var(--rule);background:var(--paper);overflow:hidden}
+figure .fig-head{display:flex;justify-content:space-between;align-items:baseline;padding:10px 16px;border-bottom:1px solid var(--rule);background:var(--paper-2);gap:12px;flex-wrap:wrap}
+figure .fig-no{font-family:var(--display);font-size:20px;font-weight:600}
+figure .fig-title{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+figure .fig-body{overflow-x:auto;padding:8px}
+figure svg{display:block;width:100%;min-width:900px;height:auto;color:var(--ink)}
+.loads{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px 28px}
+.loads h3{font-family:var(--display);text-transform:uppercase;letter-spacing:.02em;font-size:18px;color:var(--steel)}
+.loads p{font-size:15.5px;margin-bottom:6px}
+.num{font-family:var(--mono);font-size:14px;white-space:nowrap}
+ol.confirm{padding-left:22px;max-width:80ch;margin:0}
+ol.confirm li{margin-bottom:8px;padding-left:4px}
+.files{font-family:var(--mono);font-size:13.5px;line-height:1.8;color:var(--ink-2)}
+.files b{color:var(--ink);font-weight:500}
+a{color:var(--steel)}
+@media (max-width:760px){ .tb{grid-template-columns:1fr} .tb-main{border-right:0;border-bottom:1.5px solid var(--ink)} .tb-side{grid-template-rows:none;grid-template-columns:1fr 1fr 1fr} .tb-side > div{border-bottom:0;border-right:1px solid var(--rule)} .spec div{grid-template-columns:120px 1fr} }
+@media (prefers-reduced-motion:no-preference){ .bar span{transition:width .6s ease} }
+</style>
+
+<div class="wrap">
+<header class="tb">
+  <div class="tb-main">
+    <span class="eyebrow">Structural design package · Rev P1</span>
+    <h1>15 m Bag Gantry</h1>
+    <p class="lede">A freestanding galvanised steel frame for seven boxing and Muay Thai bags struck from any direction: four fixed-base SHS columns, a continuous SHS spine beam, welded hanger lugs with rated shackles and swivels, moment base plates on cast-in anchors, and reinforced concrete pad footings. Designed for a 50-year life to the Australian Standards suite.</p>
+    <span class="status">Preliminary · certification by a chartered structural engineer required before construction</span>
+  </div>
+  <div class="tb-side">
+    <div><span class="lab">Frame</span><span class="val">15.0 m · 7 hangers · 3.0 m soffit</span></div>
+    <div><span class="lab">Rated load</span><span class="val">100 kg per hanger</span></div>
+    <div><span class="lab">Checks</span><span class="val">61 pass · max 0.97</span></div>
+  </div>
+</header>
+
+<section>
+  <h2>Design summary</h2>
+  <dl class="spec">
+    <div><dt>Spine beam</dt><dd><b>250 × 250 × 9.0 SHS</b> AS 1163 C350L0, continuous over four columns; three 5.0 m lengths, flange-plate splices at 5.0 and 10.0 m</dd></div>
+    <div><dt>Columns</dt><dd><b>4 × 250 × 250 × 12.5 SHS</b> C350L0 at 0 / 4.5 / 10.5 / 15.0 m; fabricated length 2 892 mm; fixed base</dd></div>
+    <div><dt>Hangers</dt><dd><b>7 at 2.0 m centres</b>: 200 × 300 × 16 plate + 20 mm lug, shop welded; 3.25 t bolt-type bow shackle and 2 t bearing swivel each</dd></div>
+    <div><dt>Base plates</dt><dd><b>550 × 550 × 32</b> Grade 350, 10 mm fillet weld all round, on 40 mm non-shrink grout (≥ 50 MPa)</dd></div>
+    <div><dt>Anchors</dt><dd><b>4 × M24 Grade 8.8</b> cast-in per column, 450 mm embedment, 100 × 100 × 16 anchor plate, 450 × 450 gauge</dd></div>
+    <div><dt>Footings</dt><dd><b>4 × 1 800 × 1 800 × 600</b> pads, concrete <b>N32</b> (f′c = 32 MPa), N16 @ 200 each way top and bottom, hairpins at anchors, N12 dowels into the slab</dd></div>
+    <div><dt>Connections</dt><dd>Beam-to-column: 420 × 420 cap and shoe plates, 4 × M20 8.8/TB. Splices: 420 × 420 × 20 flange plates, 8 × M20 8.8/TB</dd></div>
+    <div><dt>Protection</dt><dd>Hot-dip galvanised to AS/NZS 4680, all steel and bolts; 25 mm closed-cell column padding to 2.0 m</dd></div>
+    <div><dt>Quantities</dt><dd>≈ 2.8 t steel · 7.8 m³ N32 concrete · ≈ 420 kg reinforcement</dd></div>
+    <div><dt>Dynamics</dt><dd>Frame sway 9.8 Hz on rigid bases, 7.7 Hz with base and soil flexibility; beam bays 15.7 Hz. Bags swing at 0.5-1 Hz; punches up to ~5 Hz</dd></div>
+    <div><dt>Bag heights</dt><dd>Beam soffit 3.0 m: a 1.8 m Muay Thai bag hangs with its base 0.3 m off the floor on a 0.7 m shackle, swivel and chain set; boxing bags on 0.6-0.9 m sets. Roof clearance 3.6 m minimum</dd></div>
+    <div><dt>Standards</dt><dd>AS/NZS 1170.0 actions, AS 4100 steel, AS/NZS 1554.1 welding, AS 3600 concrete, AS 5216 anchors (mirrors EN 1992-4), AS/NZS 4680 galvanising</dd></div>
+  </dl>
+</section>
+
+<section>
+  <h2>Governing checks</h2>
+  <ul class="checks">
+<li><div class="chk-head"><span class="chk-grp">Pad footings</span><span class="chk-val">0.97</span></div><div class="bar"><span style="width:97%"></span></div><div class="chk-desc">Minimum flexural reinforcement A_st,min (AS3600 8.1.6.1, alpha_b=0.20) / N16@200 provided <span class="chk-num">976 / 1e+03 mm2/m</span></div></li>
+<li><div class="chk-head"><span class="chk-grp">Sway frequency</span><span class="chk-val">0.82</span></div><div class="bar"><span style="width:82%"></span></div><div class="chk-desc">Sway frequency target 8 Hz / f (rigid base) <span class="chk-num">8 / 9.71 Hz</span></div></li>
+<li><div class="chk-head"><span class="chk-grp">Fatigue (all details)</span><span class="chk-val">0.40</span></div><div class="bar"><span style="width:40%"></span></div><div class="chk-desc">Column base tube wall at weld toe (cat 36), 2-bag range <span class="chk-num">7.35 / 18.6 MPa</span></div></li>
+<li><div class="chk-head"><span class="chk-grp">Base plates</span><span class="chk-val">0.39</span></div><div class="bar"><span style="width:39%"></span></div><div class="chk-desc">Base shear via friction 0.4 C (grout/steel) <span class="chk-num">9.19 / 23.3 kN</span></div></li>
+<li><div class="chk-head"><span class="chk-grp">Hanger lugs and gear</span><span class="chk-val">0.34</span></div><div class="bar"><span style="width:34%"></span></div><div class="chk-desc">Swivel 2 t bearing type: ULS resultant / WLL <span class="chk-num">6.77 / 19.6 kN</span></div></li>
+<li><div class="chk-head"><span class="chk-grp">Anchors</span><span class="chk-val">0.90</span></div><div class="bar"><span style="width:90%"></span></div><div class="chk-desc">Embedment fits: h_ef + anchor plate + bottom cover (mm) / pad depth <span class="chk-num">541 / 600 mm</span></div></li>
+<li><div class="chk-head"><span class="chk-grp">Columns</span><span class="chk-val">0.25</span></div><div class="bar"><span style="width:25%"></span></div><div class="chk-desc">Head sway under char. Q_h (all 7 same dir.) vs H/300 <span class="chk-num">2.54 / 10.2 mm</span></div></li>
+<li><div class="chk-head"><span class="chk-grp">Beam-to-column</span><span class="chk-val">0.22</span></div><div class="bar"><span style="width:22%"></span></div><div class="chk-desc">Shoe/cap plate bending (16 mm) T x m vs phi fy t^2/4 b_eff <span class="chk-num">6.62e+05 / 3.02e+06 Nmm</span></div></li>
+<li><div class="chk-head"><span class="chk-grp">Spine beam</span><span class="chk-val">0.51</span></div><div class="bar"><span style="width:51%"></span></div><div class="chk-desc">Beam bay frequency target 8 Hz / f <span class="chk-num">8 / 15.7 Hz</span></div></li>
+<li><div class="chk-head"><span class="chk-grp">Splices</span><span class="chk-val">0.06</span></div><div class="bar"><span style="width:6%"></span></div><div class="chk-desc">Flange plate bending (20 mm) T x m vs phi fy t^2/4 b_eff <span class="chk-num">3.06e+05 / 4.72e+06 Nmm</span></div></li>
+  </ul>
+  <p class="checks-note">Utilisation is demand divided by design capacity and must stay at or below 1.00. The frame is governed by footing stability and stiffness, not by steel strength: every member and connection sits below 0.25. Full table of 61 checks in <span class="num">calcs/RESULTS.md</span>.</p>
+</section>
+
+<section>
+  <h2>Load basis</h2>
+  <div class="loads">
+    <div><h3>Bag actions per hanger</h3>
+      <p>Rated bag <span class="num">100 kg (W = 0.98 kN)</span>. Vertical dynamic <span class="num">3.92 kN = 4 W</span>, an envelope for snatch loads when a bag is lifted and dropped or jumped on; a hard kick alone gives about 1.2 W. Horizontal <span class="num">2.0 kN</span> in any direction from impulse transfer and swing.</p></div>
+    <div><h3>Simultaneity</h3>
+      <p>All seven hangers loaded with the vertical and horizontal actions in the same direction at once. Conservative for the frame and footings, and what keeps a freestanding frame from ever rocking.</p></div>
+    <div><h3>Temperature</h3>
+      <p><span class="num">±20 K</span> from erection temperature. The beam forces the columns to follow its expansion: end columns pick up <span class="num">3.9 kN (12.0 kN·m)</span> at the base. Included in strength design, excluded from stability because it relaxes on rotation.</p></div>
+    <div><h3>Fatigue</h3>
+      <p><span class="num">1.0 kN</span> vertical and horizontal ranges per strike, <span class="num">2 × 10⁸</span> cycles per hanger over 50 years. Every welded and bolted detail is below the constant-amplitude fatigue limit with φ = 0.7, so life is not cycle-limited.</p></div>
+    <div><h3>Combinations</h3>
+      <p>AS/NZS 1170.0: 1.2 G + 1.5 Q for strength; 0.9 G + 1.0 W<sub>static</sub> + 1.5 Q<sub>h</sub> for anchor tension; 0.9 G stabilising against 1.5 Q<sub>h</sub> for pad overturning.</p></div>
+    <div><h3>Frequency targets</h3>
+      <p>Frame sway ≥ 8 Hz on rigid bases and ≥ 6 Hz with base-plate rotation and pad rocking on soft soil (G = 15 MPa), so a 4.5 Hz punch cadence amplifies by no more than 1.5.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>Drawings</h2>
+  <figure><div class="fig-head"><span class="fig-no">GA-01</span><span class="fig-title">General arrangement — elevation, plan, section A-A</span></div><div class="fig-body"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1700 1000">
+<style>
+  .l{stroke:currentColor;fill:none;stroke-width:1.1;stroke-linecap:round;stroke-linejoin:round}
+  .t{stroke:currentColor;fill:none;stroke-width:0.55;stroke-linecap:round}
+  .k{stroke:currentColor;fill:none;stroke-width:1.8;stroke-linejoin:round}
+  .d{stroke:currentColor;fill:none;stroke-width:0.8;stroke-dasharray:5 3}
+  .c{stroke:currentColor;fill:none;stroke-width:0.6;stroke-dasharray:14 3 3 3}
+  .h{stroke:currentColor;fill:none;stroke-width:0.7;stroke-dasharray:2 2}
+  .st{fill:currentColor;fill-opacity:0.22;stroke:currentColor;stroke-width:1.1}
+  .conc{fill:url(#conc);stroke:currentColor;stroke-width:1.1}
+  .grout{fill:url(#grout);stroke:currentColor;stroke-width:0.8}
+  .bag{fill:currentColor;fill-opacity:0.08;stroke:currentColor;stroke-width:0.8;stroke-dasharray:5 3}
+  text{font-family:Inter,Helvetica,Arial,sans-serif;fill:currentColor}
+  .n{font-size:11px}.s{font-size:9.5px}.b{font-size:13px;font-weight:700}.tt{font-size:16px;font-weight:700}
+  .w{font-size:9px}
+</style>
+<defs>
+  <pattern id="conc" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <line x1="0" y1="0" x2="0" y2="9" stroke="currentColor" stroke-width="0.6" stroke-opacity="0.75"/>
+    <circle cx="5" cy="3" r="0.7" fill="currentColor" fill-opacity="0.6"/>
+  </pattern>
+  <pattern id="grout" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <line x1="0" y1="0" x2="0" y2="5" stroke="currentColor" stroke-width="0.5" stroke-opacity="0.7"/>
+    <line x1="0" y1="2.5" x2="5" y2="2.5" stroke="currentColor" stroke-width="0.5" stroke-opacity="0.7"/>
+  </pattern>
+  <marker id="ar" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+    <path d="M0,1 L7,4 L0,7 z" fill="currentColor"/></marker>
+</defs>
+<text x="110" y="40" class="tt">ELEVATION (looking at the bag line)</text>
+<line x1="24.2" y1="400.0" x2="1185.8" y2="400.0" class="k"/>
+<text x="27.5" y="396.0" class="s" text-anchor="start">FFL ±0</text>
+<rect x="50.6" y="400.0" width="118.8" height="39.6" class="d"/>
+<rect x="91.8" y="397.4" width="36.3" height="2.6" class="grout"/>
+<rect x="91.8" y="395.2" width="36.3" height="2.1" class="st"/>
+<rect x="101.8" y="204.4" width="16.5" height="190.9" class="st"/>
+<rect x="96.1" y="202.0" width="27.7" height="2.4" class="st"/>
+<rect x="100.1" y="268.0" width="19.8" height="125.1" class="h"/>
+<rect x="347.6" y="400.0" width="118.8" height="39.6" class="d"/>
+<rect x="388.9" y="397.4" width="36.3" height="2.6" class="grout"/>
+<rect x="388.9" y="395.2" width="36.3" height="2.1" class="st"/>
+<rect x="398.8" y="204.4" width="16.5" height="190.9" class="st"/>
+<rect x="393.1" y="202.0" width="27.7" height="2.4" class="st"/>
+<rect x="397.1" y="268.0" width="19.8" height="125.1" class="h"/>
+<rect x="743.6" y="400.0" width="118.8" height="39.6" class="d"/>
+<rect x="784.9" y="397.4" width="36.3" height="2.6" class="grout"/>
+<rect x="784.9" y="395.2" width="36.3" height="2.1" class="st"/>
+<rect x="794.8" y="204.4" width="16.5" height="190.9" class="st"/>
+<rect x="789.1" y="202.0" width="27.7" height="2.4" class="st"/>
+<rect x="793.1" y="268.0" width="19.8" height="125.1" class="h"/>
+<rect x="1040.6" y="400.0" width="118.8" height="39.6" class="d"/>
+<rect x="1081.8" y="397.4" width="36.3" height="2.6" class="grout"/>
+<rect x="1081.8" y="395.2" width="36.3" height="2.1" class="st"/>
+<rect x="1091.8" y="204.4" width="16.5" height="190.9" class="st"/>
+<rect x="1086.1" y="202.0" width="27.7" height="2.4" class="st"/>
+<rect x="1090.1" y="268.0" width="19.8" height="125.1" class="h"/>
+<rect x="101.8" y="185.5" width="1006.5" height="16.5" class="st"/>
+<rect x="438.7" y="179.9" width="2.6" height="27.7" class="st"/>
+<rect x="768.7" y="179.9" width="2.6" height="27.7" class="st"/>
+<rect x="199.1" y="202.0" width="19.8" height="1.1" class="st"/>
+<rect x="205.7" y="203.1" width="6.6" height="7.3" class="st"/>
+<line x1="209.0" y1="210.3" x2="209.0" y2="248.2" class="l"/>
+<circle cx="209.0" cy="212.6" r="2.0" class="l"/>
+<rect x="197.1" y="248.2" width="23.8" height="132.0" class="bag" rx="5.9"/>
+<rect x="331.1" y="202.0" width="19.8" height="1.1" class="st"/>
+<rect x="337.7" y="203.1" width="6.6" height="7.3" class="st"/>
+<line x1="341.0" y1="210.3" x2="341.0" y2="248.2" class="l"/>
+<circle cx="341.0" cy="212.6" r="2.0" class="l"/>
+<rect x="329.1" y="248.2" width="23.8" height="132.0" class="bag" rx="5.9"/>
+<rect x="463.1" y="202.0" width="19.8" height="1.1" class="st"/>
+<rect x="469.7" y="203.1" width="6.6" height="7.3" class="st"/>
+<line x1="473.0" y1="210.3" x2="473.0" y2="248.2" class="l"/>
+<circle cx="473.0" cy="212.6" r="2.0" class="l"/>
+<rect x="461.1" y="248.2" width="23.8" height="132.0" class="bag" rx="5.9"/>
+<rect x="595.1" y="202.0" width="19.8" height="1.1" class="st"/>
+<rect x="601.7" y="203.1" width="6.6" height="7.3" class="st"/>
+<line x1="605.0" y1="210.3" x2="605.0" y2="248.2" class="l"/>
+<circle cx="605.0" cy="212.6" r="2.0" class="l"/>
+<rect x="593.1" y="248.2" width="23.8" height="132.0" class="bag" rx="5.9"/>
+<rect x="727.1" y="202.0" width="19.8" height="1.1" class="st"/>
+<rect x="733.7" y="203.1" width="6.6" height="7.3" class="st"/>
+<line x1="737.0" y1="210.3" x2="737.0" y2="248.2" class="l"/>
+<circle cx="737.0" cy="212.6" r="2.0" class="l"/>
+<rect x="725.1" y="248.2" width="23.8" height="132.0" class="bag" rx="5.9"/>
+<rect x="859.1" y="202.0" width="19.8" height="1.1" class="st"/>
+<rect x="865.7" y="203.1" width="6.6" height="7.3" class="st"/>
+<line x1="869.0" y1="210.3" x2="869.0" y2="248.2" class="l"/>
+<circle cx="869.0" cy="212.6" r="2.0" class="l"/>
+<rect x="857.1" y="248.2" width="23.8" height="132.0" class="bag" rx="5.9"/>
+<rect x="991.1" y="202.0" width="19.8" height="1.1" class="st"/>
+<rect x="997.7" y="203.1" width="6.6" height="7.3" class="st"/>
+<line x1="1001.0" y1="210.3" x2="1001.0" y2="248.2" class="l"/>
+<circle cx="1001.0" cy="212.6" r="2.0" class="l"/>
+<rect x="989.1" y="248.2" width="23.8" height="132.0" class="bag" rx="5.9"/>
+<text x="605.0" y="167.0" class="s" text-anchor="middle">SPINE BEAM 250x250x9.0 SHS C350L0, continuous, 3 x 5.0 m lengths, bolted flange-plate splices at 5.0 and 10.0 m</text>
+<line x1="110.0" y1="180.1" x2="110.0" y2="146.3" class="t"/>
+<line x1="407.0" y1="180.1" x2="407.0" y2="146.3" class="t"/>
+<line x1="110.0" y1="149.2" x2="407.0" y2="149.2" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="258.5" y="146.2" class="s" text-anchor="middle">4500</text>
+<line x1="407.0" y1="180.1" x2="407.0" y2="146.3" class="t"/>
+<line x1="803.0" y1="180.1" x2="803.0" y2="146.3" class="t"/>
+<line x1="407.0" y1="149.2" x2="803.0" y2="149.2" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="605.0" y="146.2" class="s" text-anchor="middle">6000</text>
+<line x1="803.0" y1="180.1" x2="803.0" y2="146.3" class="t"/>
+<line x1="1100.0" y1="180.1" x2="1100.0" y2="146.3" class="t"/>
+<line x1="803.0" y1="149.2" x2="1100.0" y2="149.2" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="951.5" y="146.2" class="s" text-anchor="middle">4500</text>
+<line x1="110.0" y1="176.1" x2="110.0" y2="117.8" class="t"/>
+<line x1="1100.0" y1="176.1" x2="1100.0" y2="117.8" class="t"/>
+<line x1="110.0" y1="122.8" x2="1100.0" y2="122.8" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="605.0" y="119.8" class="s" text-anchor="middle">15 000 overall (column centres)</text>
+<line x1="209.0" y1="453.0" x2="209.0" y2="474.4" class="t"/>
+<line x1="341.0" y1="453.0" x2="341.0" y2="474.4" class="t"/>
+<line x1="209.0" y1="472.6" x2="341.0" y2="472.6" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="275.0" y="469.6" class="s" text-anchor="middle">2000</text>
+<line x1="341.0" y1="453.0" x2="341.0" y2="474.4" class="t"/>
+<line x1="473.0" y1="453.0" x2="473.0" y2="474.4" class="t"/>
+<line x1="341.0" y1="472.6" x2="473.0" y2="472.6" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="407.0" y="469.6" class="s" text-anchor="middle">2000</text>
+<line x1="473.0" y1="453.0" x2="473.0" y2="474.4" class="t"/>
+<line x1="605.0" y1="453.0" x2="605.0" y2="474.4" class="t"/>
+<line x1="473.0" y1="472.6" x2="605.0" y2="472.6" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="539.0" y="469.6" class="s" text-anchor="middle">2000</text>
+<line x1="605.0" y1="453.0" x2="605.0" y2="474.4" class="t"/>
+<line x1="737.0" y1="453.0" x2="737.0" y2="474.4" class="t"/>
+<line x1="605.0" y1="472.6" x2="737.0" y2="472.6" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="671.0" y="469.6" class="s" text-anchor="middle">2000</text>
+<line x1="737.0" y1="453.0" x2="737.0" y2="474.4" class="t"/>
+<line x1="869.0" y1="453.0" x2="869.0" y2="474.4" class="t"/>
+<line x1="737.0" y1="472.6" x2="869.0" y2="472.6" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="803.0" y="469.6" class="s" text-anchor="middle">2000</text>
+<line x1="869.0" y1="453.0" x2="869.0" y2="474.4" class="t"/>
+<line x1="1001.0" y1="453.0" x2="1001.0" y2="474.4" class="t"/>
+<line x1="869.0" y1="472.6" x2="1001.0" y2="472.6" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="935.0" y="469.6" class="s" text-anchor="middle">2000</text>
+<line x1="110.0" y1="453.0" x2="110.0" y2="474.4" class="t"/>
+<line x1="209.0" y1="453.0" x2="209.0" y2="474.4" class="t"/>
+<line x1="110.0" y1="472.6" x2="209.0" y2="472.6" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="159.5" y="469.6" class="s" text-anchor="middle">1500</text>
+<line x1="1001.0" y1="453.0" x2="1001.0" y2="474.4" class="t"/>
+<line x1="1100.0" y1="453.0" x2="1100.0" y2="474.4" class="t"/>
+<line x1="1001.0" y1="472.6" x2="1100.0" y2="472.6" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="1050.5" y="469.6" class="s" text-anchor="middle">1500</text>
+<line x1="1114.8" y1="400.0" x2="1206.9" y2="400.0" class="t"/>
+<line x1="1114.8" y1="202.0" x2="1206.9" y2="202.0" class="t"/>
+<line x1="1199.0" y1="400.0" x2="1199.0" y2="202.0" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="1199.0" y="298.0" class="s" text-anchor="middle" transform="rotate(-90 1199.0 298.0)">3 000 soffit</text>
+<line x1="1122.8" y1="400.0" x2="1263.9" y2="400.0" class="t"/>
+<line x1="1122.8" y1="185.5" x2="1263.9" y2="185.5" class="t"/>
+<line x1="1251.8" y1="400.0" x2="1251.8" y2="185.5" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="1251.8" y="289.8" class="s" text-anchor="middle" transform="rotate(-90 1251.8 289.8)">3 250 top of steel</text>
+<line x1="1114.8" y1="439.6" x2="1206.9" y2="439.6" class="t"/>
+<line x1="1114.8" y1="400.0" x2="1206.9" y2="400.0" class="t"/>
+<line x1="1199.0" y1="439.6" x2="1199.0" y2="400.0" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="1199.0" y="416.8" class="s" text-anchor="middle" transform="rotate(-90 1199.0 416.8)">600</text>
+<line x1="60.8" y1="400.0" x2="42.4" y2="400.0" class="t"/>
+<line x1="60.8" y1="268.0" x2="42.4" y2="268.0" class="t"/>
+<line x1="44.0" y1="400.0" x2="44.0" y2="268.0" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="44.0" y="331.0" class="s" text-anchor="middle" transform="rotate(-90 44.0 331.0)">2 000 padding</text>
+<line x1="935.0" y1="419.8" x2="935.0" y2="159.1" class="c"/>
+<text x="935.0" y="155.8" class="b" text-anchor="middle">A</text>
+<text x="935.0" y="429.7" class="b" text-anchor="middle">A</text>
+<text x="110" y="492" class="s">HANGERS: 7 off at 2 000 c/c, 200x300x16 plate + 20 mm lug, 3.25 t bolt-type bow shackle + 2 t bearing swivel each. Posted SWL 100 kg per hanger. See DET-02.</text>
+<text x="110" y="507" class="s">COLUMNS: 4 off 250x250x12.5 SHS C350L0, fixed base on 550x550x32 plate with 4 x M24 cast-in anchors into 1 800 sq x 600 deep N32 pad footings. See DET-01.</text>
+<text x="110" y="522" class="s">BAGS SHOWN: 1.8 m Muay Thai bags, bottom 300 above floor on 0.7 m shackle/swivel/chain sets. Columns padded 25 mm closed-cell foam to 2.0 m. Clear headroom to roof structure 3.6 m min.</text>
+<text x="110" y="570" class="tt">PLAN</text>
+<rect x="50.6" y="730.6" width="118.8" height="118.8" class="d"/>
+<rect x="91.8" y="771.9" width="36.3" height="36.3" class="l"/>
+<rect x="101.8" y="781.8" width="16.5" height="16.5" class="st"/>
+<circle cx="95.2" cy="804.9" r="1.0" class="l"/>
+<circle cx="95.2" cy="775.1" r="1.0" class="l"/>
+<circle cx="124.8" cy="804.9" r="1.0" class="l"/>
+<circle cx="124.8" cy="775.1" r="1.0" class="l"/>
+<rect x="347.6" y="730.6" width="118.8" height="118.8" class="d"/>
+<rect x="388.9" y="771.9" width="36.3" height="36.3" class="l"/>
+<rect x="398.8" y="781.8" width="16.5" height="16.5" class="st"/>
+<circle cx="392.2" cy="804.9" r="1.0" class="l"/>
+<circle cx="392.2" cy="775.1" r="1.0" class="l"/>
+<circle cx="421.9" cy="804.9" r="1.0" class="l"/>
+<circle cx="421.9" cy="775.1" r="1.0" class="l"/>
+<rect x="743.6" y="730.6" width="118.8" height="118.8" class="d"/>
+<rect x="784.9" y="771.9" width="36.3" height="36.3" class="l"/>
+<rect x="794.8" y="781.8" width="16.5" height="16.5" class="st"/>
+<circle cx="788.1" cy="804.9" r="1.0" class="l"/>
+<circle cx="788.1" cy="775.1" r="1.0" class="l"/>
+<circle cx="817.9" cy="804.9" r="1.0" class="l"/>
+<circle cx="817.9" cy="775.1" r="1.0" class="l"/>
+<rect x="1040.6" y="730.6" width="118.8" height="118.8" class="d"/>
+<rect x="1081.8" y="771.9" width="36.3" height="36.3" class="l"/>
+<rect x="1091.8" y="781.8" width="16.5" height="16.5" class="st"/>
+<circle cx="1085.2" cy="804.9" r="1.0" class="l"/>
+<circle cx="1085.2" cy="775.1" r="1.0" class="l"/>
+<circle cx="1114.8" cy="804.9" r="1.0" class="l"/>
+<circle cx="1114.8" cy="775.1" r="1.0" class="l"/>
+<rect x="101.8" y="781.8" width="1006.5" height="16.5" class="l"/>
+<circle cx="209.0" cy="790.0" r="11.9" class="bag"/>
+<circle cx="209.0" cy="790.0" r="66.0" class="h"/>
+<circle cx="341.0" cy="790.0" r="11.9" class="bag"/>
+<circle cx="341.0" cy="790.0" r="66.0" class="h"/>
+<circle cx="473.0" cy="790.0" r="11.9" class="bag"/>
+<circle cx="473.0" cy="790.0" r="66.0" class="h"/>
+<circle cx="605.0" cy="790.0" r="11.9" class="bag"/>
+<circle cx="605.0" cy="790.0" r="66.0" class="h"/>
+<circle cx="737.0" cy="790.0" r="11.9" class="bag"/>
+<circle cx="737.0" cy="790.0" r="66.0" class="h"/>
+<circle cx="869.0" cy="790.0" r="11.9" class="bag"/>
+<circle cx="869.0" cy="790.0" r="66.0" class="h"/>
+<circle cx="1001.0" cy="790.0" r="11.9" class="bag"/>
+<circle cx="1001.0" cy="790.0" r="66.0" class="h"/>
+<rect x="438.7" y="776.1" width="2.6" height="27.7" class="st"/>
+<rect x="768.7" y="776.1" width="2.6" height="27.7" class="st"/>
+<line x1="24.2" y1="790.0" x2="1185.8" y2="790.0" class="c"/>
+<line x1="347.6" y1="862.3" x2="347.6" y2="880.7" class="t"/>
+<line x1="466.4" y1="862.3" x2="466.4" y2="880.7" class="t"/>
+<line x1="347.6" y1="879.1" x2="466.4" y2="879.1" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="407.0" y="876.1" class="s" text-anchor="middle">1 800 sq pad</text>
+<line x1="34.9" y1="856.0" x2="19.6" y2="856.0" class="t"/>
+<line x1="34.9" y1="724.0" x2="19.6" y2="724.0" class="t"/>
+<line x1="20.9" y1="856.0" x2="20.9" y2="724.0" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="20.9" y="787.0" class="s" text-anchor="middle" transform="rotate(-90 20.9 787.0)">2 000 clear zone</text>
+<line x1="532.4" y1="691.0" x2="473.0" y2="724.0" class="t" marker-end="url(#ar)"/>
+<text x="536.4" y="695.0" class="s" text-anchor="start">Dashed circles: 1.0 m radius swing envelope of a hard-hit bag.</text>
+<text x="536.4" y="707.0" class="s" text-anchor="start">Keep 2.0 m clear each side of the bag line and 1.5 m beyond the end bags.</text>
+<line x1="869.0" y1="694.3" x2="817.9" y2="775.1" class="t" marker-end="url(#ar)"/>
+<text x="873.0" y="698.3" class="s" text-anchor="start">Anchor group 4 x M24 at 450 x 450 gauge on 550 x 550 x 32 base plate</text>
+<text x="1370" y="40" class="tt">SECTION A-A</text>
+<line x1="1363.0" y1="430.0" x2="1597.0" y2="430.0" class="k"/>
+<rect x="1399.0" y="430.0" width="162.0" height="54.0" class="conc"/>
+<rect x="1390.0" y="484.0" width="180.0" height="4.5" class="grout"/>
+<rect x="1363.0" y="430.0" width="36.0" height="13.5" class="conc"/>
+<rect x="1561.0" y="430.0" width="36.0" height="13.5" class="conc"/>
+<rect x="1455.2" y="426.4" width="49.5" height="3.6" class="grout"/>
+<rect x="1455.2" y="423.5" width="49.5" height="2.9" class="st"/>
+<rect x="1468.8" y="163.2" width="22.5" height="260.3" class="st"/>
+<rect x="1461.1" y="160.0" width="37.8" height="3.2" class="st"/>
+<rect x="1468.8" y="137.5" width="22.5" height="22.5" class="st"/>
+<rect x="1458.7" y="416.5" width="2.2" height="54.0" class="l"/>
+<rect x="1455.2" y="470.5" width="9.0" height="1.4" class="st"/>
+<rect x="1499.2" y="416.5" width="2.2" height="54.0" class="l"/>
+<rect x="1495.8" y="470.5" width="9.0" height="1.4" class="st"/>
+<rect x="1463.8" y="223.0" width="32.4" height="180.0" class="bag" rx="8.1"/>
+<line x1="1480.0" y1="171.3" x2="1480.0" y2="223.0" class="d"/>
+<rect x="1466.5" y="250.0" width="27.0" height="170.6" class="h"/>
+<line x1="1399.0" y1="509.2" x2="1399.0" y2="525.9" class="t"/>
+<line x1="1561.0" y1="509.2" x2="1561.0" y2="525.9" class="t"/>
+<line x1="1399.0" y1="524.5" x2="1561.0" y2="524.5" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="1480.0" y="521.5" class="s" text-anchor="middle">1 800</text>
+<line x1="1582.4" y1="484.0" x2="1603.3" y2="484.0" class="t"/>
+<line x1="1582.4" y1="430.0" x2="1603.3" y2="430.0" class="t"/>
+<line x1="1601.5" y1="484.0" x2="1601.5" y2="430.0" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="1601.5" y="454.0" class="s" text-anchor="middle" transform="rotate(-90 1601.5 454.0)">600</text>
+<line x1="1582.4" y1="430.0" x2="1603.3" y2="430.0" class="t"/>
+<line x1="1582.4" y1="160.0" x2="1603.3" y2="160.0" class="t"/>
+<line x1="1601.5" y1="430.0" x2="1601.5" y2="160.0" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="1601.5" y="292.0" class="s" text-anchor="middle" transform="rotate(-90 1601.5 292.0)">3 000</text>
+<line x1="1468.8" y1="122.0" x2="1468.8" y2="109.4" class="t"/>
+<line x1="1491.2" y1="122.0" x2="1491.2" y2="109.4" class="t"/>
+<line x1="1468.8" y1="110.5" x2="1491.2" y2="110.5" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="1480.0" y="107.5" class="s" text-anchor="middle">250</text>
+<line x1="1534.0" y1="277.0" x2="1491.2" y2="304.0" class="t" marker-end="url(#ar)"/>
+<text x="1538.0" y="281.0" class="s" text-anchor="start">250x250x12.5 SHS</text>
+<line x1="1421.5" y1="461.5" x2="1459.8" y2="457.0" class="t" marker-end="url(#ar)"/>
+<text x="1417.5" y="465.5" class="s" text-anchor="end">M24 8.8 cast-in</text>
+<text x="1417.5" y="477.5" class="s" text-anchor="end">anchors, h_ef 450</text>
+<line x1="1417.0" y1="511.0" x2="1376.5" y2="436.8" class="t" marker-end="url(#ar)"/>
+<text x="1413.0" y="515.0" class="s" text-anchor="end">Slab doweled</text>
+<text x="1413.0" y="527.0" class="s" text-anchor="end">to pad, N12 @ 300</text>
+<rect x="1" y="1" width="1698" height="998" class="t"/>
+<rect x="1170" y="912" width="520" height="78" class="l"/>
+<line x1="1170" y1="938" x2="1690" y2="938" class="t"/>
+<line x1="1540" y1="912" x2="1540" y2="990" class="t"/>
+<text x="1178" y="930" class="b">BAG GANTRY — 15 m, 7 HANGERS</text>
+<text x="1178" y="956" class="n">GENERAL ARRANGEMENT — ELEVATION, PLAN, SECTION A-A</text>
+<text x="1178" y="972" class="s">Dimensions mm, not to scale. Steel AS 1163 C350L0 / AS/NZS 3678-350, HDG to AS/NZS 4680.</text>
+<text x="1178" y="984" class="s">Concrete N32 to AS 3600. Bolts Gr 8.8 HDG. Welds SP to AS/NZS 1554.1.</text>
+<text x="1548" y="930" class="b">GA-01</text>
+<text x="1548" y="956" class="s">Rev P1 — PRELIMINARY</text>
+<text x="1548" y="970" class="s">Not for construction until</text>
+<text x="1548" y="984" class="s">certified by an engineer.</text>
+<text x="14" y="974" class="s">Beam soffit 3.0 m suits 1.8 m Muay Thai bags (bottom 0.3 m) and 1.2-1.5 m boxing bags on 0.6-0.9 m chain sets. Design bag mass 100 kg per hanger.</text>
+<text x="14" y="986" class="s">Six-bag layout: use hangers 1-3 and 5-7; the 7.5 m position then suits a double-end or speed bag. Do not tie the frame to walls or roof without a separate check.</text></svg></div></figure>
+  <figure><div class="fig-head"><span class="fig-no">DET-01</span><span class="fig-title">Column base plate, anchors and pad footing</span></div><div class="fig-body"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 1000">
+<style>
+  .l{stroke:currentColor;fill:none;stroke-width:1.1;stroke-linecap:round;stroke-linejoin:round}
+  .t{stroke:currentColor;fill:none;stroke-width:0.55;stroke-linecap:round}
+  .k{stroke:currentColor;fill:none;stroke-width:1.8;stroke-linejoin:round}
+  .d{stroke:currentColor;fill:none;stroke-width:0.8;stroke-dasharray:5 3}
+  .c{stroke:currentColor;fill:none;stroke-width:0.6;stroke-dasharray:14 3 3 3}
+  .h{stroke:currentColor;fill:none;stroke-width:0.7;stroke-dasharray:2 2}
+  .st{fill:currentColor;fill-opacity:0.22;stroke:currentColor;stroke-width:1.1}
+  .conc{fill:url(#conc);stroke:currentColor;stroke-width:1.1}
+  .grout{fill:url(#grout);stroke:currentColor;stroke-width:0.8}
+  .bag{fill:currentColor;fill-opacity:0.08;stroke:currentColor;stroke-width:0.8;stroke-dasharray:5 3}
+  text{font-family:Inter,Helvetica,Arial,sans-serif;fill:currentColor}
+  .n{font-size:11px}.s{font-size:9.5px}.b{font-size:13px;font-weight:700}.tt{font-size:16px;font-weight:700}
+  .w{font-size:9px}
+</style>
+<defs>
+  <pattern id="conc" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <line x1="0" y1="0" x2="0" y2="9" stroke="currentColor" stroke-width="0.6" stroke-opacity="0.75"/>
+    <circle cx="5" cy="3" r="0.7" fill="currentColor" fill-opacity="0.6"/>
+  </pattern>
+  <pattern id="grout" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <line x1="0" y1="0" x2="0" y2="5" stroke="currentColor" stroke-width="0.5" stroke-opacity="0.7"/>
+    <line x1="0" y1="2.5" x2="5" y2="2.5" stroke="currentColor" stroke-width="0.5" stroke-opacity="0.7"/>
+  </pattern>
+  <marker id="ar" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+    <path d="M0,1 L7,4 L0,7 z" fill="currentColor"/></marker>
+</defs>
+<text x="60" y="40" class="tt">BASE PLATE — PLAN</text>
+<rect x="140.0" y="99.0" width="231.0" height="231.0" class="l"/>
+<rect x="203.0" y="162.0" width="105.0" height="105.0" class="st"/>
+<circle cx="161.0" cy="309.0" r="6.3" class="l"/>
+<rect x="147.6" y="295.6" width="26.9" height="26.9" class="t"/>
+<circle cx="161.0" cy="120.0" r="6.3" class="l"/>
+<rect x="147.6" y="106.6" width="26.9" height="26.9" class="t"/>
+<circle cx="350.0" cy="309.0" r="6.3" class="l"/>
+<rect x="336.6" y="295.6" width="26.9" height="26.9" class="t"/>
+<circle cx="350.0" cy="120.0" r="6.3" class="l"/>
+<rect x="336.6" y="106.6" width="26.9" height="26.9" class="t"/>
+<line x1="123.2" y1="214.5" x2="387.8" y2="214.5" class="c"/>
+<line x1="255.5" y1="346.8" x2="255.5" y2="82.2" class="c"/>
+<line x1="140.0" y1="360.9" x2="140.0" y2="396.0" class="t"/>
+<line x1="161.0" y1="360.9" x2="161.0" y2="396.0" class="t"/>
+<line x1="140.0" y1="393.0" x2="161.0" y2="393.0" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="150.5" y="390.0" class="s" text-anchor="middle">50</text>
+<line x1="161.0" y1="360.9" x2="161.0" y2="396.0" class="t"/>
+<line x1="350.0" y1="360.9" x2="350.0" y2="396.0" class="t"/>
+<line x1="161.0" y1="393.0" x2="350.0" y2="393.0" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="255.5" y="390.0" class="s" text-anchor="middle">450 gauge</text>
+<line x1="350.0" y1="360.9" x2="350.0" y2="396.0" class="t"/>
+<line x1="371.0" y1="360.9" x2="371.0" y2="396.0" class="t"/>
+<line x1="350.0" y1="393.0" x2="371.0" y2="393.0" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="360.5" y="390.0" class="s" text-anchor="middle">50</text>
+<line x1="140.0" y1="367.8" x2="140.0" y2="445.9" class="t"/>
+<line x1="371.0" y1="367.8" x2="371.0" y2="445.9" class="t"/>
+<line x1="140.0" y1="439.2" x2="371.0" y2="439.2" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="255.5" y="436.2" class="s" text-anchor="middle">550 x 550 x 32 PL Gr 350</text>
+<line x1="401.9" y1="330.0" x2="437.0" y2="330.0" class="t"/>
+<line x1="401.9" y1="99.0" x2="437.0" y2="99.0" class="t"/>
+<line x1="434.0" y1="330.0" x2="434.0" y2="99.0" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="434.0" y="211.5" class="s" text-anchor="middle" transform="rotate(-90 434.0 211.5)">550</text>
+<line x1="410.1" y1="267.0" x2="496.0" y2="267.0" class="t"/>
+<line x1="410.1" y1="162.0" x2="496.0" y2="162.0" class="t"/>
+<line x1="488.6" y1="267.0" x2="488.6" y2="162.0" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="488.6" y="211.5" class="s" text-anchor="middle" transform="rotate(-90 488.6 211.5)">250 SHS</text>
+<line x1="425.6" y1="65.4" x2="350.0" y2="120.0" class="t" marker-end="url(#ar)"/>
+<text x="429.6" y="69.4" class="s" text-anchor="start">4 x Ø30 holes for M24 anchors, 65x65x8 HDG</text>
+<text x="429.6" y="81.4" class="s" text-anchor="start">plate washers, nut + lock nut (or wedge-lock washers)</text>
+<line x1="425.6" y1="141.0" x2="308.0" y2="189.3" class="t" marker-end="url(#ar)"/>
+<text x="429.6" y="145.0" class="s" text-anchor="start">10 mm CFW all round, SP category,</text>
+<text x="429.6" y="157.0" class="s" text-anchor="start">column to base plate (shop weld)</text>
+<path d="M310.5,264.9 l0,-8 l8,8 z" fill="currentColor"/>
+<path d="M310.5,264.9 l0,8 l8,-8 z" fill="currentColor"/>
+<line x1="300.5" y1="264.9" x2="340.5" y2="264.9" class="t"/>
+<text x="321.5" y="261.9" class="w">10</text>
+<text x="344.5" y="268.9" class="w">all round</text>
+<text x="700" y="40" class="tt">SECTION THROUGH BASE AND PAD</text>
+<line x1="580.0" y1="560.0" x2="1420.0" y2="560.0" class="k"/>
+<rect x="730.0" y="560.0" width="540.0" height="180.0" class="conc"/>
+<rect x="700.0" y="740.0" width="600.0" height="15.0" class="grout"/>
+<rect x="580.0" y="560.0" width="150.0" height="45.0" class="conc"/>
+<rect x="1270.0" y="560.0" width="150.0" height="45.0" class="conc"/>
+<rect x="917.5" y="548.0" width="165.0" height="12.0" class="grout"/>
+<rect x="917.5" y="538.4" width="165.0" height="9.6" class="st"/>
+<rect x="962.5" y="382.4" width="75.0" height="156.0" class="st"/>
+<line x1="966.2" y1="538.4" x2="966.2" y2="382.4" class="t"/>
+<line x1="1033.8" y1="538.4" x2="1033.8" y2="382.4" class="t"/>
+<line x1="745.0" y1="715.1" x2="1255.0" y2="715.1" class="k"/>
+<circle cx="760.0" cy="710.3" r="2.4" class="st"/>
+<circle cx="820.0" cy="710.3" r="2.4" class="st"/>
+<circle cx="880.0" cy="710.3" r="2.4" class="st"/>
+<circle cx="940.0" cy="710.3" r="2.4" class="st"/>
+<circle cx="1000.0" cy="710.3" r="2.4" class="st"/>
+<circle cx="1060.0" cy="710.3" r="2.4" class="st"/>
+<circle cx="1120.0" cy="710.3" r="2.4" class="st"/>
+<circle cx="1180.0" cy="710.3" r="2.4" class="st"/>
+<circle cx="1240.0" cy="710.3" r="2.4" class="st"/>
+<line x1="745.0" y1="577.4" x2="1255.0" y2="577.4" class="k"/>
+<circle cx="760.0" cy="582.2" r="2.4" class="st"/>
+<circle cx="820.0" cy="582.2" r="2.4" class="st"/>
+<circle cx="880.0" cy="582.2" r="2.4" class="st"/>
+<circle cx="940.0" cy="582.2" r="2.4" class="st"/>
+<circle cx="1000.0" cy="582.2" r="2.4" class="st"/>
+<circle cx="1060.0" cy="582.2" r="2.4" class="st"/>
+<circle cx="1120.0" cy="582.2" r="2.4" class="st"/>
+<circle cx="1180.0" cy="582.2" r="2.4" class="st"/>
+<circle cx="1240.0" cy="582.2" r="2.4" class="st"/>
+<rect x="928.9" y="514.4" width="7.2" height="180.6" class="st"/>
+<rect x="917.5" y="695.0" width="30.0" height="4.8" class="st"/>
+<rect x="925.9" y="699.8" width="13.2" height="6.6" class="st"/>
+<rect x="925.9" y="688.4" width="13.2" height="6.6" class="st"/>
+<rect x="922.9" y="536.0" width="19.2" height="2.4" class="st"/>
+<rect x="925.9" y="529.4" width="13.2" height="6.6" class="st"/>
+<rect x="925.9" y="525.2" width="13.2" height="4.2" class="st"/>
+<rect x="925.9" y="548.0" width="13.2" height="6.6" class="st"/>
+<circle cx="920.5" cy="596.0" r="2.4" class="st"/>
+<circle cx="944.5" cy="596.0" r="2.4" class="st"/>
+<rect x="1063.9" y="514.4" width="7.2" height="180.6" class="st"/>
+<rect x="1052.5" y="695.0" width="30.0" height="4.8" class="st"/>
+<rect x="1060.9" y="699.8" width="13.2" height="6.6" class="st"/>
+<rect x="1060.9" y="688.4" width="13.2" height="6.6" class="st"/>
+<rect x="1057.9" y="536.0" width="19.2" height="2.4" class="st"/>
+<rect x="1060.9" y="529.4" width="13.2" height="6.6" class="st"/>
+<rect x="1060.9" y="525.2" width="13.2" height="4.2" class="st"/>
+<rect x="1060.9" y="548.0" width="13.2" height="6.6" class="st"/>
+<circle cx="1055.5" cy="596.0" r="2.4" class="st"/>
+<circle cx="1079.5" cy="596.0" r="2.4" class="st"/>
+<line x1="820.0" y1="582.5" x2="595.0" y2="582.5" class="k"/>
+<line x1="1180.0" y1="582.5" x2="1405.0" y2="582.5" class="k"/>
+<line x1="1422.7" y1="740.0" x2="1439.4" y2="740.0" class="t"/>
+<line x1="1422.7" y1="560.0" x2="1439.4" y2="560.0" class="t"/>
+<line x1="1438.0" y1="740.0" x2="1438.0" y2="560.0" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="1438.0" y="647.0" class="s" text-anchor="middle" transform="rotate(-90 1438.0 647.0)">600</text>
+<line x1="1425.8" y1="695.0" x2="1462.1" y2="695.0" class="t"/>
+<line x1="1425.8" y1="560.0" x2="1462.1" y2="560.0" class="t"/>
+<line x1="1459.0" y1="695.0" x2="1459.0" y2="560.0" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="1459.0" y="624.5" class="s" text-anchor="middle" transform="rotate(-90 1459.0 624.5)">450 h_ef</text>
+<line x1="1425.8" y1="740.0" x2="1462.1" y2="740.0" class="t"/>
+<line x1="1425.8" y1="699.8" x2="1462.1" y2="699.8" class="t"/>
+<line x1="1459.0" y1="740.0" x2="1459.0" y2="699.8" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="1459.0" y="716.9" class="s" text-anchor="middle" transform="rotate(-90 1459.0 716.9)">134</text>
+<line x1="1175.2" y1="560.0" x2="1191.9" y2="560.0" class="t"/>
+<line x1="1175.2" y1="548.0" x2="1191.9" y2="548.0" class="t"/>
+<line x1="1190.5" y1="560.0" x2="1190.5" y2="548.0" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="1190.5" y="551.0" class="s" text-anchor="middle" transform="rotate(-90 1190.5 551.0)">40 grout</text>
+<line x1="1180.6" y1="548.0" x2="1230.8" y2="548.0" class="t"/>
+<line x1="1180.6" y1="538.4" x2="1230.8" y2="538.4" class="t"/>
+<line x1="1226.5" y1="548.0" x2="1226.5" y2="538.4" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="1226.5" y="540.2" class="s" text-anchor="middle" transform="rotate(-90 1226.5 540.2)">32 PL</text>
+<line x1="730.0" y1="796.4" x2="730.0" y2="829.9" class="t"/>
+<line x1="1270.0" y1="796.4" x2="1270.0" y2="829.9" class="t"/>
+<line x1="730.0" y1="827.0" x2="1270.0" y2="827.0" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="1000.0" y="824.0" class="s" text-anchor="middle">1 800</text>
+<line x1="932.5" y1="366.8" x2="932.5" y2="344.5" class="t"/>
+<line x1="1067.5" y1="366.8" x2="1067.5" y2="344.5" class="t"/>
+<line x1="932.5" y1="346.4" x2="1067.5" y2="346.4" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="1000.0" y="343.4" class="s" text-anchor="middle">450 gauge</text>
+<line x1="1210.0" y1="455.0" x2="1071.1" y2="526.4" class="t" marker-end="url(#ar)"/>
+<text x="1214.0" y="459.0" class="s" text-anchor="start">M24 Gr 8.8 HDG threaded rod x 650 long, 150 projection;</text>
+<text x="1214.0" y="471.0" class="s" text-anchor="start">levelling nut under plate; snug + 1/2 turn after grout</text>
+<text x="1214.0" y="483.0" class="s" text-anchor="start">cures 3 days; nut + lock nut</text>
+<line x1="1210.0" y1="650.0" x2="1082.5" y2="697.4" class="t" marker-end="url(#ar)"/>
+<text x="1214.0" y="654.0" class="s" text-anchor="start">100x100x16 anchor plate Gr 250,</text>
+<text x="1214.0" y="666.0" class="s" text-anchor="start">double nut below, single nut above</text>
+<text x="1214.0" y="678.0" class="s" text-anchor="start">(no welding to Gr 8.8 rod)</text>
+<line x1="565.0" y1="635.0" x2="640.0" y2="582.5" class="t" marker-end="url(#ar)"/>
+<text x="561.0" y="639.0" class="s" text-anchor="end">N12 dowels @ 300 c/c, 450 each</text>
+<text x="561.0" y="651.0" class="s" text-anchor="end">side, epoxied into existing slab</text>
+<line x1="880.0" y1="446.0" x2="1000.0" y2="554.0" class="t" marker-end="url(#ar)"/>
+<text x="876.0" y="450.0" class="s" text-anchor="end">Non-shrink cementitious grout ≥ 50 MPa,</text>
+<text x="876.0" y="462.0" class="s" text-anchor="end">40 mm bed, full contact under plate</text>
+<line x1="865.0" y1="374.0" x2="962.5" y2="470.0" class="t" marker-end="url(#ar)"/>
+<text x="861.0" y="378.0" class="s" text-anchor="end">250x250x12.5 SHS column,</text>
+<text x="861.0" y="390.0" class="s" text-anchor="end">10 CFW all round to plate</text>
+<line x1="910.0" y1="845.0" x2="910.0" y2="715.1" class="t" marker-end="url(#ar)"/>
+<text x="906.0" y="849.0" class="s" text-anchor="end">N16 @ 200 c/c each way, top and bottom, cover 50 (75 to blinding);</text>
+<text x="906.0" y="861.0" class="s" text-anchor="end">4 x N16 U-bar hairpins around each anchor pair, 1 000 legs</text>
+<line x1="1150.0" y1="830.0" x2="1090.0" y2="747.5" class="t" marker-end="url(#ar)"/>
+<text x="1154.0" y="834.0" class="s" text-anchor="start">50 mm N20 blinding on compacted subgrade</text>
+<text x="1154.0" y="846.0" class="s" text-anchor="start">(allowable bearing ≥ 100 kPa, verify on site)</text>
+<path d="M960.7,534.8 l0,-8 l8,8 z" fill="currentColor"/>
+<path d="M960.7,534.8 l0,8 l8,-8 z" fill="currentColor"/>
+<line x1="950.7" y1="534.8" x2="990.7" y2="534.8" class="t"/>
+<text x="971.7" y="531.8" class="w">10</text>
+<text x="60" y="470" class="tt">PAD FOOTING — PLAN (top mesh not shown)</text>
+<rect x="120.0" y="664.0" width="216.0" height="216.0" class="l"/>
+<line x1="126.0" y1="862.0" x2="330.0" y2="862.0" class="l"/>
+<line x1="138.0" y1="874.0" x2="138.0" y2="670.0" class="l"/>
+<line x1="126.0" y1="838.0" x2="330.0" y2="838.0" class="l"/>
+<line x1="162.0" y1="874.0" x2="162.0" y2="670.0" class="l"/>
+<line x1="126.0" y1="814.0" x2="330.0" y2="814.0" class="l"/>
+<line x1="186.0" y1="874.0" x2="186.0" y2="670.0" class="l"/>
+<line x1="126.0" y1="790.0" x2="330.0" y2="790.0" class="l"/>
+<line x1="210.0" y1="874.0" x2="210.0" y2="670.0" class="l"/>
+<line x1="126.0" y1="766.0" x2="330.0" y2="766.0" class="l"/>
+<line x1="234.0" y1="874.0" x2="234.0" y2="670.0" class="l"/>
+<line x1="126.0" y1="742.0" x2="330.0" y2="742.0" class="l"/>
+<line x1="258.0" y1="874.0" x2="258.0" y2="670.0" class="l"/>
+<line x1="126.0" y1="718.0" x2="330.0" y2="718.0" class="l"/>
+<line x1="282.0" y1="874.0" x2="282.0" y2="670.0" class="l"/>
+<line x1="126.0" y1="694.0" x2="330.0" y2="694.0" class="l"/>
+<line x1="306.0" y1="874.0" x2="306.0" y2="670.0" class="l"/>
+<rect x="195.0" y="739.0" width="66.0" height="66.0" class="d"/>
+<circle cx="201.0" cy="799.0" r="1.4" class="st"/>
+<circle cx="201.0" cy="745.0" r="1.4" class="st"/>
+<circle cx="255.0" cy="799.0" r="1.4" class="st"/>
+<circle cx="255.0" cy="745.0" r="1.4" class="st"/>
+<polyline points="144.0,806.2 264.0,806.2 264.0,791.8 144.0,791.8" class="k"/>
+<polyline points="144.0,752.2 264.0,752.2 264.0,737.8 144.0,737.8" class="k"/>
+<line x1="66.0" y1="862.0" x2="156.0" y2="862.0" class="k"/>
+<line x1="300.0" y1="862.0" x2="390.0" y2="862.0" class="k"/>
+<line x1="138.0" y1="934.0" x2="138.0" y2="844.0" class="k"/>
+<line x1="138.0" y1="700.0" x2="138.0" y2="610.0" class="k"/>
+<line x1="66.0" y1="802.0" x2="156.0" y2="802.0" class="k"/>
+<line x1="300.0" y1="802.0" x2="390.0" y2="802.0" class="k"/>
+<line x1="198.0" y1="934.0" x2="198.0" y2="844.0" class="k"/>
+<line x1="198.0" y1="700.0" x2="198.0" y2="610.0" class="k"/>
+<line x1="66.0" y1="742.0" x2="156.0" y2="742.0" class="k"/>
+<line x1="300.0" y1="742.0" x2="390.0" y2="742.0" class="k"/>
+<line x1="258.0" y1="934.0" x2="258.0" y2="844.0" class="k"/>
+<line x1="258.0" y1="700.0" x2="258.0" y2="610.0" class="k"/>
+<line x1="66.0" y1="682.0" x2="156.0" y2="682.0" class="k"/>
+<line x1="300.0" y1="682.0" x2="390.0" y2="682.0" class="k"/>
+<line x1="318.0" y1="934.0" x2="318.0" y2="844.0" class="k"/>
+<line x1="318.0" y1="700.0" x2="318.0" y2="610.0" class="k"/>
+<line x1="120.0" y1="598.9" x2="120.0" y2="582.2" class="t"/>
+<line x1="336.0" y1="598.9" x2="336.0" y2="582.2" class="t"/>
+<line x1="120.0" y1="583.6" x2="336.0" y2="583.6" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="228.0" y="580.6" class="s" text-anchor="middle">1 800</text>
+<line x1="401.1" y1="880.0" x2="417.8" y2="880.0" class="t"/>
+<line x1="401.1" y1="664.0" x2="417.8" y2="664.0" class="t"/>
+<line x1="416.4" y1="880.0" x2="416.4" y2="664.0" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="416.4" y="769.0" class="s" text-anchor="middle" transform="rotate(-90 416.4 769.0)">1 800</text>
+<line x1="426.0" y1="676.0" x2="264.0" y2="737.8" class="t" marker-end="url(#ar)"/>
+<text x="430.0" y="680.0" class="s" text-anchor="start">N16 U-bar hairpins around anchors</text>
+<text x="430.0" y="692.0" class="s" text-anchor="start">(2 per pair, 1 000 legs)</text>
+<line x1="426.0" y1="826.0" x2="372.0" y2="802.0" class="t" marker-end="url(#ar)"/>
+<text x="430.0" y="830.0" class="s" text-anchor="start">N12 dowels @ 300 c/c, all sides</text>
+<rect x="1" y="1" width="1498" height="998" class="t"/>
+<rect x="970" y="912" width="520" height="78" class="l"/>
+<line x1="970" y1="938" x2="1490" y2="938" class="t"/>
+<line x1="1340" y1="912" x2="1340" y2="990" class="t"/>
+<text x="978" y="930" class="b">BAG GANTRY — 15 m, 7 HANGERS</text>
+<text x="978" y="956" class="n">COLUMN BASE PLATE, ANCHORS AND PAD FOOTING</text>
+<text x="978" y="972" class="s">Dimensions mm, not to scale. Steel AS 1163 C350L0 / AS/NZS 3678-350, HDG to AS/NZS 4680.</text>
+<text x="978" y="984" class="s">Concrete N32 to AS 3600. Bolts Gr 8.8 HDG. Welds SP to AS/NZS 1554.1.</text>
+<text x="1348" y="930" class="b">DET-01</text>
+<text x="1348" y="956" class="s">Rev P1 — PRELIMINARY</text>
+<text x="1348" y="970" class="s">Not for construction until</text>
+<text x="1348" y="984" class="s">certified by an engineer.</text>
+<text x="14" y="974" class="s">Anchor rods set in a plywood template to ±2 mm before the pour. Do not weld to Gr 8.8 rods. Pad top flush with FFL; slab saw-cut 1.9 m square and reinstated.</text>
+<text x="14" y="986" class="s">If an existing slab is proposed instead of pads it must be ≥ 300 mm thick and ≥ 25 MPa (cored and tested); assessment by the certifying engineer is required.</text></svg></div></figure>
+  <figure><div class="fig-head"><span class="fig-no">DET-02</span><span class="fig-title">Hanger lug and bag hardware</span></div><div class="fig-body"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 1000">
+<style>
+  .l{stroke:currentColor;fill:none;stroke-width:1.1;stroke-linecap:round;stroke-linejoin:round}
+  .t{stroke:currentColor;fill:none;stroke-width:0.55;stroke-linecap:round}
+  .k{stroke:currentColor;fill:none;stroke-width:1.8;stroke-linejoin:round}
+  .d{stroke:currentColor;fill:none;stroke-width:0.8;stroke-dasharray:5 3}
+  .c{stroke:currentColor;fill:none;stroke-width:0.6;stroke-dasharray:14 3 3 3}
+  .h{stroke:currentColor;fill:none;stroke-width:0.7;stroke-dasharray:2 2}
+  .st{fill:currentColor;fill-opacity:0.22;stroke:currentColor;stroke-width:1.1}
+  .conc{fill:url(#conc);stroke:currentColor;stroke-width:1.1}
+  .grout{fill:url(#grout);stroke:currentColor;stroke-width:0.8}
+  .bag{fill:currentColor;fill-opacity:0.08;stroke:currentColor;stroke-width:0.8;stroke-dasharray:5 3}
+  text{font-family:Inter,Helvetica,Arial,sans-serif;fill:currentColor}
+  .n{font-size:11px}.s{font-size:9.5px}.b{font-size:13px;font-weight:700}.tt{font-size:16px;font-weight:700}
+  .w{font-size:9px}
+</style>
+<defs>
+  <pattern id="conc" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <line x1="0" y1="0" x2="0" y2="9" stroke="currentColor" stroke-width="0.6" stroke-opacity="0.75"/>
+    <circle cx="5" cy="3" r="0.7" fill="currentColor" fill-opacity="0.6"/>
+  </pattern>
+  <pattern id="grout" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <line x1="0" y1="0" x2="0" y2="5" stroke="currentColor" stroke-width="0.5" stroke-opacity="0.7"/>
+    <line x1="0" y1="2.5" x2="5" y2="2.5" stroke="currentColor" stroke-width="0.5" stroke-opacity="0.7"/>
+  </pattern>
+  <marker id="ar" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+    <path d="M0,1 L7,4 L0,7 z" fill="currentColor"/></marker>
+</defs>
+<text x="60" y="40" class="tt">HANGER — ELEVATION ALONG BEAM</text>
+<rect x="325.0" y="282.5" width="390.0" height="187.5" class="st"/>
+<line x1="325.0" y1="463.2" x2="715.0" y2="463.2" class="t"/>
+<line x1="325.0" y1="289.2" x2="715.0" y2="289.2" class="t"/>
+<rect x="407.5" y="470.0" width="225.0" height="12.0" class="st"/>
+<polygon points="482.5,482.0 557.5,482.0 557.5,527.0 557.5,527.0 556.2,536.7 552.5,545.8 546.5,553.5 538.8,559.5 529.7,563.2 520.0,564.5 510.3,563.2 501.2,559.5 493.5,553.5 487.5,545.8 483.8,536.7 482.5,527.0 482.5,527.0" class="st"/>
+<circle cx="520.0" cy="527.0" r="8.2" class="l"/>
+<line x1="520.0" y1="527.0" x2="520.0" y2="785.0" class="c"/>
+<polyline points="499.0,527.0 499.0,582.5 541.0,582.5 540.3,590.1 538.2,597.2 534.8,603.3 530.5,608.0 525.4,610.9 520.0,611.9 514.6,610.9 509.5,608.0 505.2,603.3 501.8,597.2 499.7,590.1 499.0,582.5 541.0,527.0" class="k"/>
+<rect x="513.2" y="520.2" width="13.5" height="13.5" class="st"/>
+<rect x="490.0" y="522.5" width="60.0" height="9.0" class="l"/>
+<rect x="511.0" y="582.5" width="18.0" height="33.8" class="l"/>
+<circle cx="520.0" cy="631.2" r="12.0" class="l"/>
+<rect x="511.0" y="635.0" width="18.0" height="30.0" class="l"/>
+<circle cx="520.0" cy="683.8" r="12.0" class="l"/>
+<circle cx="520.0" cy="710.0" r="9.0" class="l"/>
+<circle cx="520.0" cy="729.5" r="9.0" class="l"/>
+<circle cx="520.0" cy="749.0" r="9.0" class="l"/>
+<circle cx="520.0" cy="768.5" r="9.0" class="l"/>
+<text x="520.0" y="800.0" class="s" text-anchor="middle">to bag chain set (4 legs, rated by the bag maker)</text>
+<line x1="407.5" y1="278.0" x2="407.5" y2="250.1" class="t"/>
+<line x1="632.5" y1="278.0" x2="632.5" y2="250.1" class="t"/>
+<line x1="407.5" y1="252.5" x2="632.5" y2="252.5" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="520.0" y="249.5" class="s" text-anchor="middle">300 hanger plate</text>
+<line x1="482.5" y1="272.4" x2="482.5" y2="209.6" class="t"/>
+<line x1="557.5" y1="272.4" x2="557.5" y2="209.6" class="t"/>
+<line x1="482.5" y1="215.0" x2="557.5" y2="215.0" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="520.0" y="212.0" class="s" text-anchor="middle">100 lug</text>
+<line x1="751.8" y1="470.0" x2="793.6" y2="470.0" class="t"/>
+<line x1="751.8" y1="282.5" x2="793.6" y2="282.5" class="t"/>
+<line x1="790.0" y1="470.0" x2="790.0" y2="282.5" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="790.0" y="373.2" class="s" text-anchor="middle" transform="rotate(-90 790.0 373.2)">250</text>
+<line x1="758.5" y1="482.0" x2="842.2" y2="482.0" class="t"/>
+<line x1="758.5" y1="470.0" x2="842.2" y2="470.0" class="t"/>
+<line x1="835.0" y1="482.0" x2="835.0" y2="470.0" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="835.0" y="473.0" class="s" text-anchor="middle" transform="rotate(-90 835.0 473.0)">16</text>
+<line x1="288.2" y1="527.0" x2="246.4" y2="527.0" class="t"/>
+<line x1="288.2" y1="482.0" x2="246.4" y2="482.0" class="t"/>
+<line x1="250.0" y1="527.0" x2="250.0" y2="482.0" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="250.0" y="501.5" class="s" text-anchor="middle" transform="rotate(-90 250.0 501.5)">60</text>
+<line x1="288.2" y1="564.5" x2="246.4" y2="564.5" class="t"/>
+<line x1="288.2" y1="527.0" x2="246.4" y2="527.0" class="t"/>
+<line x1="250.0" y1="564.5" x2="250.0" y2="527.0" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="250.0" y="542.8" class="s" text-anchor="middle" transform="rotate(-90 250.0 542.8)">50</text>
+<path d="M635.5,476.0 l0,-8 l8,8 z" fill="currentColor"/>
+<path d="M635.5,476.0 l0,8 l8,-8 z" fill="currentColor"/>
+<line x1="625.5" y1="476.0" x2="665.5" y2="476.0" class="t"/>
+<text x="646.5" y="473.0" class="w">8</text>
+<text x="669.5" y="480.0" class="w">all round</text>
+<path d="M560.5,492.5 l0,-8 l8,8 z" fill="currentColor"/>
+<path d="M560.5,492.5 l0,8 l8,-8 z" fill="currentColor"/>
+<line x1="550.5" y1="492.5" x2="590.5" y2="492.5" class="t"/>
+<text x="571.5" y="489.5" class="w">8</text>
+<text x="594.5" y="496.5" class="w">both sides</text>
+<line x1="767.5" y1="245.0" x2="617.5" y2="464.0" class="t" marker-end="url(#ar)"/>
+<text x="771.5" y="249.0" class="s" text-anchor="start">250x250x9.0 SHS spine beam</text>
+<line x1="767.5" y1="605.0" x2="610.0" y2="477.5" class="t" marker-end="url(#ar)"/>
+<text x="771.5" y="609.0" class="s" text-anchor="start">Hanger plate 200 x 300 x 16 Gr 350, 8 CFW all round, shop</text>
+<text x="771.5" y="621.0" class="s" text-anchor="start">welded before HDG; 200 wide keeps the load line within</text>
+<text x="771.5" y="633.0" class="s" text-anchor="start">16 mm of the beam webs (no local wall bending)</text>
+<line x1="767.5" y1="717.5" x2="553.8" y2="541.2" class="t" marker-end="url(#ar)"/>
+<text x="771.5" y="721.5" class="s" text-anchor="start">Lug 20 mm PL Gr 350, 100 wide, R50 end,</text>
+<text x="771.5" y="733.5" class="s" text-anchor="start">Ø22 hole; 8 CFW both sides with returns</text>
+<line x1="280.0" y1="620.0" x2="499.0" y2="560.0" class="t" marker-end="url(#ar)"/>
+<text x="276.0" y="624.0" class="s" text-anchor="end">3.25 t WLL Grade S bow shackle,</text>
+<text x="276.0" y="636.0" class="s" text-anchor="end">BOLT TYPE with nut + split pin</text>
+<text x="276.0" y="648.0" class="s" text-anchor="end">(screw pins unwind under rotation)</text>
+<line x1="280.0" y1="710.0" x2="511.0" y2="650.0" class="t" marker-end="url(#ar)"/>
+<text x="276.0" y="714.0" class="s" text-anchor="end">2 t WLL bearing-type swivel</text>
+<text x="276.0" y="726.0" class="s" text-anchor="end">(rated lifting component,</text>
+<text x="276.0" y="738.0" class="s" text-anchor="end">replace at 5-yearly inspection)</text>
+<text x="980" y="40" class="tt">HANGER — SECTION ACROSS BEAM</text>
+<rect x="1056.2" y="282.5" width="187.5" height="187.5" class="l"/>
+<rect x="1063.0" y="289.2" width="174.0" height="174.0" class="l"/>
+<rect x="1075.0" y="470.0" width="150.0" height="12.0" class="st"/>
+<rect x="1142.5" y="482.0" width="15.0" height="82.5" class="st"/>
+<circle cx="1150.0" cy="527.0" r="8.2" class="d"/>
+<line x1="1056.2" y1="470.0" x2="1075.0" y2="482.0" class="t"/>
+<line x1="1243.8" y1="470.0" x2="1225.0" y2="482.0" class="t"/>
+<line x1="1056.2" y1="260.8" x2="1056.2" y2="218.9" class="t"/>
+<line x1="1243.8" y1="260.8" x2="1243.8" y2="218.9" class="t"/>
+<line x1="1056.2" y1="222.5" x2="1243.8" y2="222.5" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="1150.0" y="219.5" class="s" text-anchor="middle">250</text>
+<line x1="1075.0" y1="488.8" x2="1075.0" y2="530.6" class="t"/>
+<line x1="1225.0" y1="488.8" x2="1225.0" y2="530.6" class="t"/>
+<line x1="1075.0" y1="527.0" x2="1225.0" y2="527.0" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="1150.0" y="524.0" class="s" text-anchor="middle">200 plate</text>
+<line x1="1142.5" y1="571.2" x2="1142.5" y2="613.1" class="t"/>
+<line x1="1157.5" y1="571.2" x2="1157.5" y2="613.1" class="t"/>
+<line x1="1142.5" y1="609.5" x2="1157.5" y2="609.5" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="1150.0" y="606.5" class="s" text-anchor="middle">20 lug</text>
+<line x1="1267.0" y1="482.0" x2="1294.9" y2="482.0" class="t"/>
+<line x1="1267.0" y1="470.0" x2="1294.9" y2="470.0" class="t"/>
+<line x1="1292.5" y1="482.0" x2="1292.5" y2="470.0" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="1292.5" y="473.0" class="s" text-anchor="middle" transform="rotate(-90 1292.5 473.0)">16</text>
+<line x1="1300.0" y1="590.0" x2="1225.0" y2="476.0" class="t" marker-end="url(#ar)"/>
+<text x="1304.0" y="594.0" class="s" text-anchor="start">Load path: lug → plate → 8 mm</text>
+<text x="1304.0" y="606.0" class="s" text-anchor="start">fillets → beam bottom wall → webs;</text>
+<text x="1304.0" y="618.0" class="s" text-anchor="start">wall bending lever ≤ 16 mm (checked)</text>
+<line x1="925.0" y1="380.0" x2="1056.2" y2="380.0" class="t" marker-end="url(#ar)"/>
+<text x="921.0" y="384.0" class="s" text-anchor="end">Vent/drain holes for HDG:</text>
+<text x="921.0" y="396.0" class="s" text-anchor="end">2 x Ø25 each end of every</text>
+<text x="921.0" y="408.0" class="s" text-anchor="end">closed member, diagonally</text>
+<text x="921.0" y="420.0" class="s" text-anchor="end">opposite (galvaniser to confirm)</text>
+<rect x="60" y="830" width="900" height="150" class="l"/>
+<text x="72" y="854" class="b">HANGER LOAD RATING (each of 7 hangers)</text>
+<text x="72" y="878" class="s">Posted SWL 100 kg bag mass. Design actions per hanger (characteristic): 3.9 kN vertical (4 x W, swing / snatch / jump envelope), 2.0 kN horizontal in any direction.</text>
+<text x="72" y="902" class="s">ULS 6.1 kN vertical + 3.0 kN horizontal. Rated gear: shackle WLL 3.25 t (31.9 kN), swivel WLL 2 t (19.6 kN). Lug and welds below 6 % utilisation.</text>
+<text x="72" y="926" class="s">Fatigue: 2 x 10^8 cycles per hanger over 50 years; every detail checked for infinite life (AS 4100 Section 11, phi = 0.7).</text>
+<text x="72" y="950" class="s">Proof-load every hanger to 300 kg (3.0 kN) static for 10 min at commissioning and record. Re-inspect hardware 6-monthly; replace shackle and swivel at 5 years.</text>
+<rect x="1" y="1" width="1498" height="998" class="t"/>
+<rect x="970" y="912" width="520" height="78" class="l"/>
+<line x1="970" y1="938" x2="1490" y2="938" class="t"/>
+<line x1="1340" y1="912" x2="1340" y2="990" class="t"/>
+<text x="978" y="930" class="b">BAG GANTRY — 15 m, 7 HANGERS</text>
+<text x="978" y="956" class="n">HANGER LUG AND BAG HARDWARE</text>
+<text x="978" y="972" class="s">Dimensions mm, not to scale. Steel AS 1163 C350L0 / AS/NZS 3678-350, HDG to AS/NZS 4680.</text>
+<text x="978" y="984" class="s">Concrete N32 to AS 3600. Bolts Gr 8.8 HDG. Welds SP to AS/NZS 1554.1.</text>
+<text x="1348" y="930" class="b">DET-02</text>
+<text x="1348" y="956" class="s">Rev P1 — PRELIMINARY</text>
+<text x="1348" y="970" class="s">Not for construction until</text>
+<text x="1348" y="984" class="s">certified by an engineer.</text>
+<text x="14" y="974" class="s">Optional: a 200-300 kg rated heavy-duty bag spring between swivel and chain set reduces shock and noise; the frame is designed without relying on it.</text>
+<text x="14" y="986" class="s">Lug plane is parallel to the beam axis. Grind lug hole edges; no sharp corners. Column padding also covers the base plate nuts (toe-stub hazard).</text></svg></div></figure>
+  <figure><div class="fig-head"><span class="fig-no">DET-03</span><span class="fig-title">Beam-to-column connection and beam splice</span></div><div class="fig-body"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 1000">
+<style>
+  .l{stroke:currentColor;fill:none;stroke-width:1.1;stroke-linecap:round;stroke-linejoin:round}
+  .t{stroke:currentColor;fill:none;stroke-width:0.55;stroke-linecap:round}
+  .k{stroke:currentColor;fill:none;stroke-width:1.8;stroke-linejoin:round}
+  .d{stroke:currentColor;fill:none;stroke-width:0.8;stroke-dasharray:5 3}
+  .c{stroke:currentColor;fill:none;stroke-width:0.6;stroke-dasharray:14 3 3 3}
+  .h{stroke:currentColor;fill:none;stroke-width:0.7;stroke-dasharray:2 2}
+  .st{fill:currentColor;fill-opacity:0.22;stroke:currentColor;stroke-width:1.1}
+  .conc{fill:url(#conc);stroke:currentColor;stroke-width:1.1}
+  .grout{fill:url(#grout);stroke:currentColor;stroke-width:0.8}
+  .bag{fill:currentColor;fill-opacity:0.08;stroke:currentColor;stroke-width:0.8;stroke-dasharray:5 3}
+  text{font-family:Inter,Helvetica,Arial,sans-serif;fill:currentColor}
+  .n{font-size:11px}.s{font-size:9.5px}.b{font-size:13px;font-weight:700}.tt{font-size:16px;font-weight:700}
+  .w{font-size:9px}
+</style>
+<defs>
+  <pattern id="conc" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <line x1="0" y1="0" x2="0" y2="9" stroke="currentColor" stroke-width="0.6" stroke-opacity="0.75"/>
+    <circle cx="5" cy="3" r="0.7" fill="currentColor" fill-opacity="0.6"/>
+  </pattern>
+  <pattern id="grout" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <line x1="0" y1="0" x2="0" y2="5" stroke="currentColor" stroke-width="0.5" stroke-opacity="0.7"/>
+    <line x1="0" y1="2.5" x2="5" y2="2.5" stroke="currentColor" stroke-width="0.5" stroke-opacity="0.7"/>
+  </pattern>
+  <marker id="ar" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+    <path d="M0,1 L7,4 L0,7 z" fill="currentColor"/></marker>
+</defs>
+<text x="60" y="40" class="tt">BEAM-TO-COLUMN — ELEVATION</text>
+<rect x="451.2" y="400.0" width="137.5" height="220.0" class="st"/>
+<line x1="458.1" y1="620.0" x2="458.1" y2="400.0" class="t"/>
+<line x1="581.9" y1="620.0" x2="581.9" y2="400.0" class="t"/>
+<rect x="404.5" y="389.0" width="231.0" height="11.0" class="st"/>
+<rect x="404.5" y="380.2" width="231.0" height="8.8" class="st"/>
+<rect x="311.0" y="242.7" width="418.0" height="137.5" class="st"/>
+<line x1="311.0" y1="375.2" x2="729.0" y2="375.2" class="t"/>
+<line x1="311.0" y1="247.6" x2="729.0" y2="247.6" class="t"/>
+<rect x="417.7" y="373.1" width="17.6" height="7.2" class="st"/>
+<rect x="421.0" y="380.2" width="11.0" height="27.0" class="l"/>
+<rect x="417.7" y="400.0" width="17.6" height="7.2" class="st"/>
+<rect x="604.7" y="373.1" width="17.6" height="7.2" class="st"/>
+<rect x="608.0" y="380.2" width="11.0" height="27.0" class="l"/>
+<rect x="604.7" y="400.0" width="17.6" height="7.2" class="st"/>
+<line x1="426.5" y1="230.0" x2="426.5" y2="199.4" class="t"/>
+<line x1="613.5" y1="230.0" x2="613.5" y2="199.4" class="t"/>
+<line x1="426.5" y1="202.0" x2="613.5" y2="202.0" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="520.0" y="199.0" class="s" text-anchor="middle">340 gauge</text>
+<line x1="404.5" y1="221.8" x2="404.5" y2="140.0" class="t"/>
+<line x1="635.5" y1="221.8" x2="635.5" y2="140.0" class="t"/>
+<line x1="404.5" y1="147.0" x2="635.5" y2="147.0" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="520.0" y="144.0" class="s" text-anchor="middle">420 x 420 plates</text>
+<line x1="745.0" y1="380.2" x2="775.6" y2="380.2" class="t"/>
+<line x1="745.0" y1="242.7" x2="775.6" y2="242.7" class="t"/>
+<line x1="773.0" y1="380.2" x2="773.0" y2="242.7" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="773.0" y="308.4" class="s" text-anchor="middle" transform="rotate(-90 773.0 308.4)">250</text>
+<path d="M447.9,411.0 l0,-8 l8,8 z" fill="currentColor"/>
+<path d="M447.9,411.0 l0,8 l8,-8 z" fill="currentColor"/>
+<line x1="437.9" y1="411.0" x2="477.9" y2="411.0" class="t"/>
+<text x="458.9" y="408.0" class="w">8</text>
+<text x="481.9" y="415.0" class="w">cap PL all round</text>
+<path d="M401.2,383.5 l0,-8 l8,8 z" fill="currentColor"/>
+<path d="M401.2,383.5 l0,8 l8,-8 z" fill="currentColor"/>
+<line x1="391.2" y1="383.5" x2="431.2" y2="383.5" class="t"/>
+<text x="412.2" y="380.5" class="w">8</text>
+<text x="435.2" y="387.5" class="w">shoe PL all round</text>
+<line x1="289.0" y1="334.0" x2="426.5" y2="372.5" class="t" marker-end="url(#ar)"/>
+<text x="285.0" y="338.0" class="s" text-anchor="end">4 x M20 Gr 8.8/TB HDG, tensioned</text>
+<text x="285.0" y="350.0" class="s" text-anchor="end">(turn-of-nut), Ø22 holes, hardened</text>
+<text x="285.0" y="362.0" class="s" text-anchor="end">washers; nuts below the cap plate</text>
+<line x1="289.0" y1="537.5" x2="451.2" y2="537.5" class="t" marker-end="url(#ar)"/>
+<text x="285.0" y="541.5" class="s" text-anchor="end">Column 250x250x12.5 SHS;</text>
+<text x="285.0" y="553.5" class="s" text-anchor="end">cap plate 420x420x20 shop</text>
+<text x="285.0" y="565.5" class="s" text-anchor="end">welded 8 CFW all round</text>
+<line x1="751.0" y1="169.0" x2="685.0" y2="262.5" class="t" marker-end="url(#ar)"/>
+<text x="755.0" y="173.0" class="s" text-anchor="start">Beam 250x250x9.0 SHS continuous over column;</text>
+<text x="755.0" y="185.0" class="s" text-anchor="start">shoe plate 420x420x16 shop welded 8 CFW all round</text>
+<text x="1020" y="40" class="tt">CAP / SHOE PLATE — PLAN</text>
+<rect x="1155.5" y="205.5" width="189.0" height="189.0" class="l"/>
+<rect x="1193.8" y="243.8" width="112.5" height="112.5" class="st"/>
+<circle cx="1173.5" cy="376.5" r="5.0" class="l"/>
+<circle cx="1173.5" cy="223.5" r="5.0" class="l"/>
+<circle cx="1326.5" cy="376.5" r="5.0" class="l"/>
+<circle cx="1326.5" cy="223.5" r="5.0" class="l"/>
+<line x1="1173.5" y1="416.6" x2="1173.5" y2="441.7" class="t"/>
+<line x1="1326.5" y1="416.6" x2="1326.5" y2="441.7" class="t"/>
+<line x1="1173.5" y1="439.5" x2="1326.5" y2="439.5" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="1250.0" y="436.5" class="s" text-anchor="middle">340</text>
+<line x1="1155.5" y1="422.6" x2="1155.5" y2="485.4" class="t"/>
+<line x1="1344.5" y1="422.6" x2="1344.5" y2="485.4" class="t"/>
+<line x1="1155.5" y1="480.0" x2="1344.5" y2="480.0" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="1250.0" y="477.0" class="s" text-anchor="middle">420</text>
+<line x1="1366.5" y1="376.5" x2="1391.7" y2="376.5" class="t"/>
+<line x1="1366.5" y1="223.5" x2="1391.7" y2="223.5" class="t"/>
+<line x1="1389.5" y1="376.5" x2="1389.5" y2="223.5" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="1389.5" y="297.0" class="s" text-anchor="middle" transform="rotate(-90 1389.5 297.0)">340</text>
+<line x1="1137.5" y1="165.0" x2="1173.5" y2="223.5" class="t" marker-end="url(#ar)"/>
+<text x="1133.5" y="169.0" class="s" text-anchor="end">Ø22 holes, 45 mm from tube face,</text>
+<text x="1133.5" y="181.0" class="s" text-anchor="end">40 mm edge distance</text>
+<text x="60" y="650" class="tt">BEAM SPLICE AT 5.0 m AND 10.0 m — ELEVATION</text>
+<rect x="270.0" y="755.0" width="240.0" height="125.0" class="st"/>
+<rect x="530.0" y="755.0" width="240.0" height="125.0" class="st"/>
+<rect x="510.0" y="712.5" width="10.0" height="210.0" class="st"/>
+<rect x="520.0" y="712.5" width="10.0" height="210.0" class="st"/>
+<rect x="503.5" y="894.5" width="6.5" height="16.0" class="st"/>
+<rect x="503.5" y="897.5" width="33.0" height="10.0" class="l"/>
+<rect x="530.0" y="894.5" width="6.5" height="16.0" class="st"/>
+<rect x="503.5" y="809.5" width="6.5" height="16.0" class="st"/>
+<rect x="503.5" y="812.5" width="33.0" height="10.0" class="l"/>
+<rect x="530.0" y="809.5" width="6.5" height="16.0" class="st"/>
+<rect x="503.5" y="724.5" width="6.5" height="16.0" class="st"/>
+<rect x="503.5" y="727.5" width="33.0" height="10.0" class="l"/>
+<rect x="530.0" y="724.5" width="6.5" height="16.0" class="st"/>
+<line x1="510.0" y1="700.5" x2="510.0" y2="672.6" class="t"/>
+<line x1="530.0" y1="700.5" x2="530.0" y2="672.6" class="t"/>
+<line x1="510.0" y1="675.0" x2="530.0" y2="675.0" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="520.0" y="672.0" class="s" text-anchor="middle">2 x 20 PL</text>
+<line x1="270.0" y1="939.5" x2="270.0" y2="967.4" class="t"/>
+<line x1="510.0" y1="939.5" x2="510.0" y2="967.4" class="t"/>
+<line x1="270.0" y1="965.0" x2="510.0" y2="965.0" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="390.0" y="962.0" class="s" text-anchor="middle">5 000 lengths (typ.)</text>
+<line x1="559.0" y1="922.5" x2="614.8" y2="922.5" class="t"/>
+<line x1="559.0" y1="712.5" x2="614.8" y2="712.5" class="t"/>
+<line x1="610.0" y1="922.5" x2="610.0" y2="712.5" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="610.0" y="814.5" class="s" text-anchor="middle" transform="rotate(-90 610.0 814.5)">420</text>
+<path d="M507.0,750.0 l0,-8 l8,8 z" fill="currentColor"/>
+<path d="M507.0,750.0 l0,8 l8,-8 z" fill="currentColor"/>
+<line x1="497.0" y1="750.0" x2="537.0" y2="750.0" class="t"/>
+<text x="518.0" y="747.0" class="w">8</text>
+<text x="541.0" y="754.0" class="w">all round, both plates</text>
+<line x1="370.0" y1="670.0" x2="505.0" y2="817.5" class="t" marker-end="url(#ar)"/>
+<text x="366.0" y="674.0" class="s" text-anchor="end">8 x M20 Gr 8.8/TB tensioned, at corners and</text>
+<text x="366.0" y="686.0" class="s" text-anchor="end">mid-sides of 340 gauge; flange plates</text>
+<text x="366.0" y="698.0" class="s" text-anchor="end">420x420x20 Gr 350, match-drilled in pairs</text>
+<text x="1020" y="600" class="tt">SPLICE — END VIEW</text>
+<rect x="1155.5" y="649.2" width="189.0" height="189.0" class="l"/>
+<rect x="1193.8" y="687.5" width="112.5" height="112.5" class="st"/>
+<rect x="1197.8" y="691.5" width="104.4" height="104.4" class="l"/>
+<circle cx="1173.5" cy="820.2" r="5.0" class="l"/>
+<circle cx="1250.0" cy="820.2" r="5.0" class="l"/>
+<circle cx="1326.5" cy="820.2" r="5.0" class="l"/>
+<circle cx="1173.5" cy="743.8" r="5.0" class="l"/>
+<circle cx="1326.5" cy="743.8" r="5.0" class="l"/>
+<circle cx="1173.5" cy="667.2" r="5.0" class="l"/>
+<circle cx="1250.0" cy="667.2" r="5.0" class="l"/>
+<circle cx="1326.5" cy="667.2" r="5.0" class="l"/>
+<line x1="1173.5" y1="858.0" x2="1173.5" y2="883.2" class="t"/>
+<line x1="1326.5" y1="858.0" x2="1326.5" y2="883.2" class="t"/>
+<line x1="1173.5" y1="881.0" x2="1326.5" y2="881.0" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="1250.0" y="878.0" class="s" text-anchor="middle">340</text>
+<line x1="1366.5" y1="820.2" x2="1391.7" y2="820.2" class="t"/>
+<line x1="1366.5" y1="667.2" x2="1391.7" y2="667.2" class="t"/>
+<line x1="1389.5" y1="820.2" x2="1389.5" y2="667.2" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="1389.5" y="740.8" class="s" text-anchor="middle" transform="rotate(-90 1389.5 740.8)">340</text>
+<line x1="1137.5" y1="687.5" x2="1173.5" y2="743.8" class="t" marker-end="url(#ar)"/>
+<text x="1133.5" y="691.5" class="s" text-anchor="end">Bolt pattern gives equal capacity about both</text>
+<text x="1133.5" y="703.5" class="s" text-anchor="end">axes (bags load the beam vertically and sideways)</text>
+<rect x="1" y="1" width="1498" height="998" class="t"/>
+<rect x="970" y="912" width="520" height="78" class="l"/>
+<line x1="970" y1="938" x2="1490" y2="938" class="t"/>
+<line x1="1340" y1="912" x2="1340" y2="990" class="t"/>
+<text x="978" y="930" class="b">BAG GANTRY — 15 m, 7 HANGERS</text>
+<text x="978" y="956" class="n">BEAM-TO-COLUMN CONNECTION AND BEAM SPLICE</text>
+<text x="978" y="972" class="s">Dimensions mm, not to scale. Steel AS 1163 C350L0 / AS/NZS 3678-350, HDG to AS/NZS 4680.</text>
+<text x="978" y="984" class="s">Concrete N32 to AS 3600. Bolts Gr 8.8 HDG. Welds SP to AS/NZS 1554.1.</text>
+<text x="1348" y="930" class="b">DET-03</text>
+<text x="1348" y="956" class="s">Rev P1 — PRELIMINARY</text>
+<text x="1348" y="970" class="s">Not for construction until</text>
+<text x="1348" y="984" class="s">certified by an engineer.</text>
+<text x="14" y="974" class="s">Splices sit 0.5 m into the 6.0 m bay (moment 5.6 kNm ULS, utilisation below 5 %). Bolt after HDG; touch up damaged zinc with two coats of zinc-rich paint.</text>
+<text x="14" y="986" class="s">Erection: columns plumbed on levelling nuts, beam lengths landed and bolted, tensioned, alignment checked (beam level ±5 mm, columns plumb ≤ H/500), grout, anchor nuts after 3 days.</text></svg></div></figure>
+</section>
+
+<section>
+  <h2>What the certifying engineer must confirm</h2>
+  <ol class="confirm">
+    <li>Bag mass stays at or below 100 kg per hanger and nothing else (rings, ropes, pull-up bars) is hung from the frame without added lugs and a local re-check.</li>
+    <li>Interior, unconditioned building; ±20 K temperature range; site seismicity low enough that the bag loads govern.</li>
+    <li>Ground under the pads: allowable bearing ≥ 100 kPa and shear modulus ≥ 15 MPa, by inspection or test pit. Softer ground needs larger pads or a ground beam.</li>
+    <li>Existing slab thickness, grade, services and any post-tensioning at the four pad locations before saw-cutting.</li>
+    <li>Shop drawings, weld procedures and the galvaniser's vent-hole layout. The dynamic load model is a first-principles envelope, not a measurement; the frame has margin either way and the footings keep a 1.4 margin on the factored overturning check.</li>
+  </ol>
+</section>
+
+<section>
+  <h2>Package files</h2>
+  <div class="files">
+    <b>DESIGN-REPORT.md</b> — basis, loads, analysis, members, connections, base plates, anchors, footings, fatigue, fabrication, erection, inspection, assumptions<br>
+    <b>calcs/gantry_calcs.py</b> — pure-Python calculation script, 61 checks; <b>calcs/RESULTS.md</b> — generated check table and log<br>
+    <b>drawings/*.svg</b> — the four sheets above, generated by <b>drawings/make_drawings.py</b><br>
+    <b>build_page.py</b> — builds this page from the calculations and drawings
+  </div>
+</section>
+</div>

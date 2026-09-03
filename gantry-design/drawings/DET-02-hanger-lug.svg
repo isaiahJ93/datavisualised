@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 1000" width="1500" height="1000">
+<style>
+  .l{stroke:currentColor;fill:none;stroke-width:1.1;stroke-linecap:round;stroke-linejoin:round}
+  .t{stroke:currentColor;fill:none;stroke-width:0.55;stroke-linecap:round}
+  .k{stroke:currentColor;fill:none;stroke-width:1.8;stroke-linejoin:round}
+  .d{stroke:currentColor;fill:none;stroke-width:0.8;stroke-dasharray:5 3}
+  .c{stroke:currentColor;fill:none;stroke-width:0.6;stroke-dasharray:14 3 3 3}
+  .h{stroke:currentColor;fill:none;stroke-width:0.7;stroke-dasharray:2 2}
+  .st{fill:currentColor;fill-opacity:0.22;stroke:currentColor;stroke-width:1.1}
+  .conc{fill:url(#conc);stroke:currentColor;stroke-width:1.1}
+  .grout{fill:url(#grout);stroke:currentColor;stroke-width:0.8}
+  .bag{fill:currentColor;fill-opacity:0.08;stroke:currentColor;stroke-width:0.8;stroke-dasharray:5 3}
+  text{font-family:Inter,Helvetica,Arial,sans-serif;fill:currentColor}
+  .n{font-size:11px}.s{font-size:9.5px}.b{font-size:13px;font-weight:700}.tt{font-size:16px;font-weight:700}
+  .w{font-size:9px}
+</style>
+<defs>
+  <pattern id="conc" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <line x1="0" y1="0" x2="0" y2="9" stroke="currentColor" stroke-width="0.6" stroke-opacity="0.75"/>
+    <circle cx="5" cy="3" r="0.7" fill="currentColor" fill-opacity="0.6"/>
+  </pattern>
+  <pattern id="grout" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <line x1="0" y1="0" x2="0" y2="5" stroke="currentColor" stroke-width="0.5" stroke-opacity="0.7"/>
+    <line x1="0" y1="2.5" x2="5" y2="2.5" stroke="currentColor" stroke-width="0.5" stroke-opacity="0.7"/>
+  </pattern>
+  <marker id="ar" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+    <path d="M0,1 L7,4 L0,7 z" fill="currentColor"/></marker>
+</defs>
+<text x="60" y="40" class="tt">HANGER — ELEVATION ALONG BEAM</text>
+<rect x="325.0" y="282.5" width="390.0" height="187.5" class="st"/>
+<line x1="325.0" y1="463.2" x2="715.0" y2="463.2" class="t"/>
+<line x1="325.0" y1="289.2" x2="715.0" y2="289.2" class="t"/>
+<rect x="407.5" y="470.0" width="225.0" height="12.0" class="st"/>
+<polygon points="482.5,482.0 557.5,482.0 557.5,527.0 557.5,527.0 556.2,536.7 552.5,545.8 546.5,553.5 538.8,559.5 529.7,563.2 520.0,564.5 510.3,563.2 501.2,559.5 493.5,553.5 487.5,545.8 483.8,536.7 482.5,527.0 482.5,527.0" class="st"/>
+<circle cx="520.0" cy="527.0" r="8.2" class="l"/>
+<line x1="520.0" y1="527.0" x2="520.0" y2="785.0" class="c"/>
+<polyline points="499.0,527.0 499.0,582.5 541.0,582.5 540.3,590.1 538.2,597.2 534.8,603.3 530.5,608.0 525.4,610.9 520.0,611.9 514.6,610.9 509.5,608.0 505.2,603.3 501.8,597.2 499.7,590.1 499.0,582.5 541.0,527.0" class="k"/>
+<rect x="513.2" y="520.2" width="13.5" height="13.5" class="st"/>
+<rect x="490.0" y="522.5" width="60.0" height="9.0" class="l"/>
+<rect x="511.0" y="582.5" width="18.0" height="33.8" class="l"/>
+<circle cx="520.0" cy="631.2" r="12.0" class="l"/>
+<rect x="511.0" y="635.0" width="18.0" height="30.0" class="l"/>
+<circle cx="520.0" cy="683.8" r="12.0" class="l"/>
+<circle cx="520.0" cy="710.0" r="9.0" class="l"/>
+<circle cx="520.0" cy="729.5" r="9.0" class="l"/>
+<circle cx="520.0" cy="749.0" r="9.0" class="l"/>
+<circle cx="520.0" cy="768.5" r="9.0" class="l"/>
+<text x="520.0" y="800.0" class="s" text-anchor="middle">to bag chain set (4 legs, rated by the bag maker)</text>
+<line x1="407.5" y1="278.0" x2="407.5" y2="250.1" class="t"/>
+<line x1="632.5" y1="278.0" x2="632.5" y2="250.1" class="t"/>
+<line x1="407.5" y1="252.5" x2="632.5" y2="252.5" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="520.0" y="249.5" class="s" text-anchor="middle">300 hanger plate</text>
+<line x1="482.5" y1="272.4" x2="482.5" y2="209.6" class="t"/>
+<line x1="557.5" y1="272.4" x2="557.5" y2="209.6" class="t"/>
+<line x1="482.5" y1="215.0" x2="557.5" y2="215.0" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="520.0" y="212.0" class="s" text-anchor="middle">100 lug</text>
+<line x1="751.8" y1="470.0" x2="793.6" y2="470.0" class="t"/>
+<line x1="751.8" y1="282.5" x2="793.6" y2="282.5" class="t"/>
+<line x1="790.0" y1="470.0" x2="790.0" y2="282.5" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="790.0" y="373.2" class="s" text-anchor="middle" transform="rotate(-90 790.0 373.2)">250</text>
+<line x1="758.5" y1="482.0" x2="842.2" y2="482.0" class="t"/>
+<line x1="758.5" y1="470.0" x2="842.2" y2="470.0" class="t"/>
+<line x1="835.0" y1="482.0" x2="835.0" y2="470.0" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="835.0" y="473.0" class="s" text-anchor="middle" transform="rotate(-90 835.0 473.0)">16</text>
+<line x1="288.2" y1="527.0" x2="246.4" y2="527.0" class="t"/>
+<line x1="288.2" y1="482.0" x2="246.4" y2="482.0" class="t"/>
+<line x1="250.0" y1="527.0" x2="250.0" y2="482.0" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="250.0" y="501.5" class="s" text-anchor="middle" transform="rotate(-90 250.0 501.5)">60</text>
+<line x1="288.2" y1="564.5" x2="246.4" y2="564.5" class="t"/>
+<line x1="288.2" y1="527.0" x2="246.4" y2="527.0" class="t"/>
+<line x1="250.0" y1="564.5" x2="250.0" y2="527.0" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="250.0" y="542.8" class="s" text-anchor="middle" transform="rotate(-90 250.0 542.8)">50</text>
+<path d="M635.5,476.0 l0,-8 l8,8 z" fill="currentColor"/>
+<path d="M635.5,476.0 l0,8 l8,-8 z" fill="currentColor"/>
+<line x1="625.5" y1="476.0" x2="665.5" y2="476.0" class="t"/>
+<text x="646.5" y="473.0" class="w">8</text>
+<text x="669.5" y="480.0" class="w">all round</text>
+<path d="M560.5,492.5 l0,-8 l8,8 z" fill="currentColor"/>
+<path d="M560.5,492.5 l0,8 l8,-8 z" fill="currentColor"/>
+<line x1="550.5" y1="492.5" x2="590.5" y2="492.5" class="t"/>
+<text x="571.5" y="489.5" class="w">8</text>
+<text x="594.5" y="496.5" class="w">both sides</text>
+<line x1="767.5" y1="245.0" x2="617.5" y2="464.0" class="t" marker-end="url(#ar)"/>
+<text x="771.5" y="249.0" class="s" text-anchor="start">250x250x9.0 SHS spine beam</text>
+<line x1="767.5" y1="605.0" x2="610.0" y2="477.5" class="t" marker-end="url(#ar)"/>
+<text x="771.5" y="609.0" class="s" text-anchor="start">Hanger plate 200 x 300 x 16 Gr 350, 8 CFW all round, shop</text>
+<text x="771.5" y="621.0" class="s" text-anchor="start">welded before HDG; 200 wide keeps the load line within</text>
+<text x="771.5" y="633.0" class="s" text-anchor="start">16 mm of the beam webs (no local wall bending)</text>
+<line x1="767.5" y1="717.5" x2="553.8" y2="541.2" class="t" marker-end="url(#ar)"/>
+<text x="771.5" y="721.5" class="s" text-anchor="start">Lug 20 mm PL Gr 350, 100 wide, R50 end,</text>
+<text x="771.5" y="733.5" class="s" text-anchor="start">Ø22 hole; 8 CFW both sides with returns</text>
+<line x1="280.0" y1="620.0" x2="499.0" y2="560.0" class="t" marker-end="url(#ar)"/>
+<text x="276.0" y="624.0" class="s" text-anchor="end">3.25 t WLL Grade S bow shackle,</text>
+<text x="276.0" y="636.0" class="s" text-anchor="end">BOLT TYPE with nut + split pin</text>
+<text x="276.0" y="648.0" class="s" text-anchor="end">(screw pins unwind under rotation)</text>
+<line x1="280.0" y1="710.0" x2="511.0" y2="650.0" class="t" marker-end="url(#ar)"/>
+<text x="276.0" y="714.0" class="s" text-anchor="end">2 t WLL bearing-type swivel</text>
+<text x="276.0" y="726.0" class="s" text-anchor="end">(rated lifting component,</text>
+<text x="276.0" y="738.0" class="s" text-anchor="end">replace at 5-yearly inspection)</text>
+<text x="980" y="40" class="tt">HANGER — SECTION ACROSS BEAM</text>
+<rect x="1056.2" y="282.5" width="187.5" height="187.5" class="l"/>
+<rect x="1063.0" y="289.2" width="174.0" height="174.0" class="l"/>
+<rect x="1075.0" y="470.0" width="150.0" height="12.0" class="st"/>
+<rect x="1142.5" y="482.0" width="15.0" height="82.5" class="st"/>
+<circle cx="1150.0" cy="527.0" r="8.2" class="d"/>
+<line x1="1056.2" y1="470.0" x2="1075.0" y2="482.0" class="t"/>
+<line x1="1243.8" y1="470.0" x2="1225.0" y2="482.0" class="t"/>
+<line x1="1056.2" y1="260.8" x2="1056.2" y2="218.9" class="t"/>
+<line x1="1243.8" y1="260.8" x2="1243.8" y2="218.9" class="t"/>
+<line x1="1056.2" y1="222.5" x2="1243.8" y2="222.5" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="1150.0" y="219.5" class="s" text-anchor="middle">250</text>
+<line x1="1075.0" y1="488.8" x2="1075.0" y2="530.6" class="t"/>
+<line x1="1225.0" y1="488.8" x2="1225.0" y2="530.6" class="t"/>
+<line x1="1075.0" y1="527.0" x2="1225.0" y2="527.0" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="1150.0" y="524.0" class="s" text-anchor="middle">200 plate</text>
+<line x1="1142.5" y1="571.2" x2="1142.5" y2="613.1" class="t"/>
+<line x1="1157.5" y1="571.2" x2="1157.5" y2="613.1" class="t"/>
+<line x1="1142.5" y1="609.5" x2="1157.5" y2="609.5" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="1150.0" y="606.5" class="s" text-anchor="middle">20 lug</text>
+<line x1="1267.0" y1="482.0" x2="1294.9" y2="482.0" class="t"/>
+<line x1="1267.0" y1="470.0" x2="1294.9" y2="470.0" class="t"/>
+<line x1="1292.5" y1="482.0" x2="1292.5" y2="470.0" class="t" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="1292.5" y="473.0" class="s" text-anchor="middle" transform="rotate(-90 1292.5 473.0)">16</text>
+<line x1="1300.0" y1="590.0" x2="1225.0" y2="476.0" class="t" marker-end="url(#ar)"/>
+<text x="1304.0" y="594.0" class="s" text-anchor="start">Load path: lug → plate → 8 mm</text>
+<text x="1304.0" y="606.0" class="s" text-anchor="start">fillets → beam bottom wall → webs;</text>
+<text x="1304.0" y="618.0" class="s" text-anchor="start">wall bending lever ≤ 16 mm (checked)</text>
+<line x1="925.0" y1="380.0" x2="1056.2" y2="380.0" class="t" marker-end="url(#ar)"/>
+<text x="921.0" y="384.0" class="s" text-anchor="end">Vent/drain holes for HDG:</text>
+<text x="921.0" y="396.0" class="s" text-anchor="end">2 x Ø25 each end of every</text>
+<text x="921.0" y="408.0" class="s" text-anchor="end">closed member, diagonally</text>
+<text x="921.0" y="420.0" class="s" text-anchor="end">opposite (galvaniser to confirm)</text>
+<rect x="60" y="830" width="900" height="150" class="l"/>
+<text x="72" y="854" class="b">HANGER LOAD RATING (each of 7 hangers)</text>
+<text x="72" y="878" class="s">Posted SWL 100 kg bag mass. Design actions per hanger (characteristic): 3.9 kN vertical (4 x W, swing / snatch / jump envelope), 2.0 kN horizontal in any direction.</text>
+<text x="72" y="902" class="s">ULS 6.1 kN vertical + 3.0 kN horizontal. Rated gear: shackle WLL 3.25 t (31.9 kN), swivel WLL 2 t (19.6 kN). Lug and welds below 6 % utilisation.</text>
+<text x="72" y="926" class="s">Fatigue: 2 x 10^8 cycles per hanger over 50 years; every detail checked for infinite life (AS 4100 Section 11, phi = 0.7).</text>
+<text x="72" y="950" class="s">Proof-load every hanger to 300 kg (3.0 kN) static for 10 min at commissioning and record. Re-inspect hardware 6-monthly; replace shackle and swivel at 5 years.</text>
+<rect x="1" y="1" width="1498" height="998" class="t"/>
+<rect x="970" y="912" width="520" height="78" class="l"/>
+<line x1="970" y1="938" x2="1490" y2="938" class="t"/>
+<line x1="1340" y1="912" x2="1340" y2="990" class="t"/>
+<text x="978" y="930" class="b">BAG GANTRY — 15 m, 7 HANGERS</text>
+<text x="978" y="956" class="n">HANGER LUG AND BAG HARDWARE</text>
+<text x="978" y="972" class="s">Dimensions mm, not to scale. Steel AS 1163 C350L0 / AS/NZS 3678-350, HDG to AS/NZS 4680.</text>
+<text x="978" y="984" class="s">Concrete N32 to AS 3600. Bolts Gr 8.8 HDG. Welds SP to AS/NZS 1554.1.</text>
+<text x="1348" y="930" class="b">DET-02</text>
+<text x="1348" y="956" class="s">Rev P1 — PRELIMINARY</text>
+<text x="1348" y="970" class="s">Not for construction until</text>
+<text x="1348" y="984" class="s">certified by an engineer.</text>
+<text x="14" y="974" class="s">Optional: a 200-300 kg rated heavy-duty bag spring between swivel and chain set reduces shock and noise; the frame is designed without relying on it.</text>
+<text x="14" y="986" class="s">Lug plane is parallel to the beam axis. Grind lug hole edges; no sharp corners. Column padding also covers the base plate nuts (toe-stub hazard).</text></svg>
