@@ -54,8 +54,8 @@ class Sheet:
         self.raw(f'<line x1="{x0+lw}" y1="{y0}" x2="{x0+lw}" y2="{y0+bh}" class="t"/>')
         self.raw(f'<text x="{x0+8}" y="{y0+18}" class="b">BAG GANTRY — 15 m, 7 HANGERS</text>')
         self.raw(f'<text x="{x0+8}" y="{y0+44}" class="n">{esc(self.title)}</text>')
-        self.raw(f'<text x="{x0+8}" y="{y0+60}" class="s">Dimensions mm, not to scale. Steel AS 1163 C350L0 / AS/NZS 3678-350, HDG to AS/NZS 4680.</text>')
-        self.raw(f'<text x="{x0+8}" y="{y0+72}" class="s">Concrete N32 to AS 3600. Bolts Gr 8.8 HDG. Welds SP to AS/NZS 1554.1.</text>')
+        self.raw(f'<text x="{x0+8}" y="{y0+60}" class="s">Dimensions mm, not to scale. Steel AS 1163 C350L0 / AS/NZS 3678-350.</text>')
+        self.raw(f'<text x="{x0+8}" y="{y0+72}" class="s">HDG AS/NZS 4680. Concrete N32. Bolts Gr 8.8 HDG. Welds SP, AS/NZS 1554.1.</text>')
         self.raw(f'<text x="{x0+lw+8}" y="{y0+18}" class="b">{esc(self.number)}</text>')
         self.raw(f'<text x="{x0+lw+8}" y="{y0+44}" class="s">Rev P1 — PRELIMINARY</text>')
         self.raw(f'<text x="{x0+lw+8}" y="{y0+58}" class="s">Not for construction until</text>')
@@ -287,14 +287,14 @@ def hanger_sheet():
     e.dim(-125, 270, 125, 270, 60, "250"); e.dim(-100, -16, 100, -16, -60, "200 plate"); e.dim(-10, -126, 10, -126, -60, "20 lug"); e.dim(150, -16, 150, 0, 40, "16")
     e.leader(100, -8, 200, -160, ["Load path: lug → plate → 8 mm", "fillets → beam bottom wall → webs;", "wall bending lever ≤ 16 mm (checked)"], anchor="start", cls="s")
     e.leader(-125, 120, -300, 120, ["Vent/drain holes for HDG:", "2 x Ø25 each end of every", "closed member, diagonally", "opposite (galvaniser to confirm)"], anchor="end", cls="s")
-    x0, y0 = 60, 830
-    sh.raw(f'<rect x="{x0}" y="{y0}" width="900" height="150" class="l"/>')
+    x0, y0 = 60, 818
+    sh.raw(f'<rect x="{x0}" y="{y0}" width="900" height="132" class="l"/>')
     lines = ["HANGER LOAD RATING (each of 7 hangers)",
              "Posted SWL 100 kg bag mass. Design actions per hanger (characteristic): 3.9 kN vertical (4 x W, swing / snatch / jump envelope), 2.0 kN horizontal in any direction.",
              "ULS 6.1 kN vertical + 3.0 kN horizontal. Rated gear: shackle WLL 3.25 t (31.9 kN), swivel WLL 2 t (19.6 kN). Lug and welds below 6 % utilisation.",
              "Fatigue: 2 x 10^8 cycles per hanger over 50 years; every detail checked for infinite life (AS 4100 Section 11, phi = 0.7).",
              "Proof-load every hanger to 300 kg (3.0 kN) static for 10 min at commissioning and record. Re-inspect hardware 6-monthly; replace shackle and swivel at 5 years."]
-    for i, ln in enumerate(lines): sh.note(x0 + 12, y0 + 24 + 24 * i, ln, "b" if i == 0 else "s")
+    for i, ln in enumerate(lines): sh.note(x0 + 12, y0 + 22 + 22 * i, ln, "b" if i == 0 else "s")
     sh.titleblock(["Optional: a 200-300 kg rated heavy-duty bag spring between swivel and chain set reduces shock and noise; the frame is designed without relying on it.",
                    "Lug plane is parallel to the beam axis. Grind lug hole edges; no sharp corners. Column padding also covers the base plate nuts (toe-stub hazard)."])
     sh.save("DET-02-hanger-lug.svg")

@@ -130,20 +130,20 @@
 <text x="921.0" y="396.0" class="s" text-anchor="end">2 x Ø25 each end of every</text>
 <text x="921.0" y="408.0" class="s" text-anchor="end">closed member, diagonally</text>
 <text x="921.0" y="420.0" class="s" text-anchor="end">opposite (galvaniser to confirm)</text>
-<rect x="60" y="830" width="900" height="150" class="l"/>
-<text x="72" y="854" class="b">HANGER LOAD RATING (each of 7 hangers)</text>
-<text x="72" y="878" class="s">Posted SWL 100 kg bag mass. Design actions per hanger (characteristic): 3.9 kN vertical (4 x W, swing / snatch / jump envelope), 2.0 kN horizontal in any direction.</text>
-<text x="72" y="902" class="s">ULS 6.1 kN vertical + 3.0 kN horizontal. Rated gear: shackle WLL 3.25 t (31.9 kN), swivel WLL 2 t (19.6 kN). Lug and welds below 6 % utilisation.</text>
-<text x="72" y="926" class="s">Fatigue: 2 x 10^8 cycles per hanger over 50 years; every detail checked for infinite life (AS 4100 Section 11, phi = 0.7).</text>
-<text x="72" y="950" class="s">Proof-load every hanger to 300 kg (3.0 kN) static for 10 min at commissioning and record. Re-inspect hardware 6-monthly; replace shackle and swivel at 5 years.</text>
+<rect x="60" y="818" width="900" height="132" class="l"/>
+<text x="72" y="840" class="b">HANGER LOAD RATING (each of 7 hangers)</text>
+<text x="72" y="862" class="s">Posted SWL 100 kg bag mass. Design actions per hanger (characteristic): 3.9 kN vertical (4 x W, swing / snatch / jump envelope), 2.0 kN horizontal in any direction.</text>
+<text x="72" y="884" class="s">ULS 6.1 kN vertical + 3.0 kN horizontal. Rated gear: shackle WLL 3.25 t (31.9 kN), swivel WLL 2 t (19.6 kN). Lug and welds below 6 % utilisation.</text>
+<text x="72" y="906" class="s">Fatigue: 2 x 10^8 cycles per hanger over 50 years; every detail checked for infinite life (AS 4100 Section 11, phi = 0.7).</text>
+<text x="72" y="928" class="s">Proof-load every hanger to 300 kg (3.0 kN) static for 10 min at commissioning and record. Re-inspect hardware 6-monthly; replace shackle and swivel at 5 years.</text>
 <rect x="1" y="1" width="1498" height="998" class="t"/>
 <rect x="970" y="912" width="520" height="78" class="l"/>
 <line x1="970" y1="938" x2="1490" y2="938" class="t"/>
 <line x1="1340" y1="912" x2="1340" y2="990" class="t"/>
 <text x="978" y="930" class="b">BAG GANTRY — 15 m, 7 HANGERS</text>
 <text x="978" y="956" class="n">HANGER LUG AND BAG HARDWARE</text>
-<text x="978" y="972" class="s">Dimensions mm, not to scale. Steel AS 1163 C350L0 / AS/NZS 3678-350, HDG to AS/NZS 4680.</text>
-<text x="978" y="984" class="s">Concrete N32 to AS 3600. Bolts Gr 8.8 HDG. Welds SP to AS/NZS 1554.1.</text>
+<text x="978" y="972" class="s">Dimensions mm, not to scale. Steel AS 1163 C350L0 / AS/NZS 3678-350.</text>
+<text x="978" y="984" class="s">HDG AS/NZS 4680. Concrete N32. Bolts Gr 8.8 HDG. Welds SP, AS/NZS 1554.1.</text>
 <text x="1348" y="930" class="b">DET-02</text>
 <text x="1348" y="956" class="s">Rev P1 — PRELIMINARY</text>
 <text x="1348" y="970" class="s">Not for construction until</text>

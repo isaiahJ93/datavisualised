@@ -160,8 +160,8 @@
 <line x1="1340" y1="912" x2="1340" y2="990" class="t"/>
 <text x="978" y="930" class="b">BAG GANTRY — 15 m, 7 HANGERS</text>
 <text x="978" y="956" class="n">BEAM-TO-COLUMN CONNECTION AND BEAM SPLICE</text>
-<text x="978" y="972" class="s">Dimensions mm, not to scale. Steel AS 1163 C350L0 / AS/NZS 3678-350, HDG to AS/NZS 4680.</text>
-<text x="978" y="984" class="s">Concrete N32 to AS 3600. Bolts Gr 8.8 HDG. Welds SP to AS/NZS 1554.1.</text>
+<text x="978" y="972" class="s">Dimensions mm, not to scale. Steel AS 1163 C350L0 / AS/NZS 3678-350.</text>
+<text x="978" y="984" class="s">HDG AS/NZS 4680. Concrete N32. Bolts Gr 8.8 HDG. Welds SP, AS/NZS 1554.1.</text>
 <text x="1348" y="930" class="b">DET-03</text>
 <text x="1348" y="956" class="s">Rev P1 — PRELIMINARY</text>
 <text x="1348" y="970" class="s">Not for construction until</text>
